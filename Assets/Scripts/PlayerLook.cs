@@ -14,12 +14,9 @@ public class PlayerLook : MonoBehaviour
         }
     }
 #pragma warning disable 0649
-    [SerializeField] private Transform playerBody;
-
     public Vector2 lookVector;
-
+    [SerializeField] private Transform playerBody;
     [SerializeField] [Range(0, 20)] private float raycastDistance = 10f;
-
     [SerializeField] [Range(0, 150)] private float mouseSensitivity = 100f;
 #pragma warning restore 0649
 
@@ -42,7 +39,6 @@ public class PlayerLook : MonoBehaviour
         CameraRotation();
 
         lastTarget = GetTarget();
-        //SetTarget(null);
         RaycastHit hit;
         //Cast a ray and scan for an Interactable target
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, raycastDistance)) 

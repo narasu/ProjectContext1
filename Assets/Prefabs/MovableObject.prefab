@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4977790695150609312}
   - component: {fileID: 4977790695150609313}
   - component: {fileID: 4977790695150609318}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MovableObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109,8 +109,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a5b03ee241d74844ad8fd0f8182e2e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 4977790695150609318}
-  playerHand: {fileID: 0}
 --- !u!54 &4977790695150609318
 Rigidbody:
   m_ObjectHideFlags: 0

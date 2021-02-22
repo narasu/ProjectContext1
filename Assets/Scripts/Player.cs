@@ -21,58 +21,59 @@ public class Player : MonoBehaviour
     //Object of type movable that the player is holding
     [HideInInspector] public Movable inHand;
 
-    /*    Character Movement    */
-    private CharacterController charController;
-    [SerializeField] private float movementSpeed = 8.0f;
-    [HideInInspector] public Vector2 walkVector;
-    [HideInInspector] public float forwardInput, horizInput;
-    private Vector3 forwardMovement, rightMovement, movement;
-	
+    [SerializeField] private Transform hand;
+    public Transform Hand
+    {
+        get { return hand; }
+    }
+    [SerializeField] private float rotateSpeed;
 
     private void Awake()
     {
         //Initialize variables;
         instance = this;
-        charController = GetComponent<CharacterController>();
     }
-
-    private void Start()
-    {
-		
-    }
-
     private void Update()
     {
-        //update movement vectors based on player input
-            forwardInput = Input.GetAxisRaw("Vertical");
-            horizInput = Input.GetAxisRaw("Horizontal");
+        //Input event for interacting with objects
+        if (Input.GetMouseButtonDown(0))
+        {
+            InteractWithObject();
+        }
+
+        if (inHand!=null)
+        {
+            float xRollInput = Input.GetAxisRaw("X Roll");
+            float zRollInput = Input.GetAxisRaw("Z Roll");
+            //Quaternion nextRotation = Quaternion.Euler(transform.right);
+            var xRoll = Camera.main.transform.right * xRollInput * rotateSpeed * Time.deltaTime;
+            var zRoll = Camera.main.transform.forward * zRollInput * rotateSpeed * Time.deltaTime;
+            var totalRoll = xRoll + zRoll;
+
+            
+
+            inHand.gameObject.transform.Rotate(totalRoll, Space.World);
 
 
-            walkVector = new Vector2(horizInput, forwardInput);
-
-
-            //Input event for interacting with objects
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(1))
             {
-                Interact();
+                inHand.gameObject.transform.localRotation = Quaternion.Euler(Vector3.zero);
             }
-        Walk();
-    }
-	
-    //player movement
-    public void Walk()
-    {
-        forwardMovement = transform.forward * walkVector.y;
-        rightMovement = transform.right * walkVector.x;
 
-        movement = Vector3.Normalize(forwardMovement + rightMovement) * movementSpeed;
-        charController.SimpleMove(movement);
-    }
+            Transform t = inHand.gameObject.transform;
+            Vector3 resizeScale = t.localScale + Vector3.one * Input.mouseScrollDelta.y * 0.1f;
 
-    //Interact with objects
-    public void Interact()
+            Vector3 newScale = new Vector3();
+            newScale.x = Mathf.Clamp(resizeScale.x, 0.1f, 2f);
+            newScale.y = Mathf.Clamp(resizeScale.y, 0.1f, 2f);
+            newScale.z = Mathf.Clamp(resizeScale.z, 0.1f, 2f);
+
+            inHand.gameObject.transform.localScale = newScale;
+
+        }
+    }
+    public void InteractWithObject()
     {
-        //does the player have something in hand? if so, drop. 
         if (inHand != null)
         {
             if (inHand.GetComponent<Rigidbody>()==null) //check if an object got removed but failed to clear
@@ -84,16 +85,13 @@ public class Player : MonoBehaviour
             ClearHand();
             return;
         }
-
-        // is the player looking at a valid Interactable target?
         lookingAt = PlayerLook.Instance.GetTarget();
         if (lookingAt == null)
+        {
             return;
+        }
 
-        //set target to interacting state
         lookingAt.GotoInteracting();
-
-        //is the object movable? if so, grab
         inHand = lookingAt.GetComponent<Movable>();
         if (inHand != null)
         {
@@ -101,8 +99,5 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void ClearHand()
-    {
-        inHand = null;
-    }
+    private void ClearHand() => inHand = null;
 }
