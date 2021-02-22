@@ -39,8 +39,6 @@ public class HighlightedState : InteractableState
 {
     public override void Enter()
     {
-        //interactable.spriteRenderer.sprite = interactable.highlightedSprite;
-        interactable.GetComponent<CameraProp>()?.EnableText();
     }
     public override void Update()
     {
