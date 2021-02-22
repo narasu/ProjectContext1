@@ -8,7 +8,6 @@ public class Movable : Interactable
 
     [SerializeField] private Rigidbody rb;
     [SerializeField] private Transform playerHand;
-    [SerializeField] private Transform worldType;
 
     protected override void Awake()
     {
@@ -39,7 +38,7 @@ public class Movable : Interactable
     // Return it to the world layer and turn the gravity back on
     public void Drop()
     {
-        transform.parent = worldType;
+        transform.SetParent(null);
         rb.useGravity = true;
         rb.constraints = RigidbodyConstraints.None;
         gameObject.layer = 10;

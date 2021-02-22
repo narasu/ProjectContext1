@@ -56,6 +56,7 @@ public class Player : MonoBehaviour
             {
                 Interact();
             }
+        Walk();
     }
 	
     //player movement
