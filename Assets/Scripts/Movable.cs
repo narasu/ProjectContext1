@@ -55,9 +55,4 @@ public class Movable : Interactable
         c.a = 1.0f;
         GetComponent<Renderer>().material.color = c;
     }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        Debug.Log(other);
-    }
 }
