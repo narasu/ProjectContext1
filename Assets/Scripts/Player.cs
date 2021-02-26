@@ -49,11 +49,9 @@ public class Player : MonoBehaviour
             var xRoll = Camera.main.transform.right * xRollInput * rotateSpeed * Time.deltaTime;
             var zRoll = Camera.main.transform.forward * zRollInput * rotateSpeed * Time.deltaTime;
             var totalRoll = xRoll + zRoll;
-
-            
+            Debug.Log(totalRoll);
 
             inHand.gameObject.transform.Rotate(totalRoll, Space.World);
-
 
             if (Input.GetMouseButtonDown(1))
             {
