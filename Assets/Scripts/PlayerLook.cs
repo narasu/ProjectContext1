@@ -25,18 +25,20 @@ public class PlayerLook : MonoBehaviour
 
     private Interactable target;
     private Interactable lastTarget;
+    private Player player;
 
     private void Awake()
     {
         instance = this;
         camera = GetComponent<Camera>();
+        player = FindObjectOfType<Player>();
         LockCursor();
     }
 
     private void Update()
     {
-        
-        CameraRotation();
+        if(player.keyState == Player.KeyState.nothing)
+            CameraRotation();
 
         lastTarget = GetTarget();
         RaycastHit hit;

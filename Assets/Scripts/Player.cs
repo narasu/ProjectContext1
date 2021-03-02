@@ -6,6 +6,11 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
+    public enum KeyState {nothing, X, Y, Z};
+    public KeyState keyState;
+    Vector2 startingMousePos;
+    Vector3 startRotation;
+    float deltaX;
     private static Player instance;
     public static Player Instance
     {
@@ -20,7 +25,6 @@ public class Player : MonoBehaviour
     private Interactable lookingAt;
     //Object of type movable that the player is holding
     [HideInInspector] public Movable inHand;
-
     [SerializeField] private Transform hand;
     public Transform Hand
     {
@@ -32,26 +36,78 @@ public class Player : MonoBehaviour
     {
         //Initialize variables;
         instance = this;
+
+        keyState = KeyState.nothing;
+    }
+
+    private void SwitchToKey(KeyState keyStateToSwitchTo)
+    {
+        keyState = keyStateToSwitchTo;
+        startingMousePos = Input.mousePosition;
+        startRotation = inHand.gameObject.transform.localRotation.eulerAngles;
+        Cursor.lockState = CursorLockMode.None;
+    }
+
+    private void SwitchToNothing()
+    {
+        keyState = KeyState.nothing;
+        Cursor.lockState = CursorLockMode.Locked;
     }
     private void Update()
     {
         //Input event for interacting with objects
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && keyState == KeyState.nothing)
         {
             InteractWithObject();
         }
 
         if (inHand!=null)
         {
-            float xRollInput = Input.GetAxisRaw("X Roll");
-            float zRollInput = Input.GetAxisRaw("Z Roll");
-            //Quaternion nextRotation = Quaternion.Euler(transform.right);
-            var xRoll = Camera.main.transform.right * xRollInput * rotateSpeed * Time.deltaTime;
-            var zRoll = Camera.main.transform.forward * zRollInput * rotateSpeed * Time.deltaTime;
-            var totalRoll = xRoll + zRoll;
-            //Debug.Log(totalRoll);
+            if(Input.GetKeyDown(KeyCode.X) && keyState != KeyState.X)
+                SwitchToKey(KeyState.X);
+            else if(Input.GetKeyDown(KeyCode.X) && keyState == KeyState.X)
+                SwitchToNothing();
 
-            inHand.gameObject.transform.Rotate(totalRoll, Space.World);
+            if(Input.GetKeyDown(KeyCode.C) && keyState != KeyState.Y)
+                SwitchToKey(KeyState.Y);
+            else if(Input.GetKeyDown(KeyCode.C) && keyState == KeyState.Y)
+                SwitchToNothing();
+
+            if(Input.GetKeyDown(KeyCode.Z) && keyState != KeyState.Z)
+                SwitchToKey(KeyState.Z);
+            else if(Input.GetKeyDown(KeyCode.Z) && keyState == KeyState.Z)
+                SwitchToNothing();
+
+            if(Input.GetMouseButtonDown(0) && keyState != KeyState.nothing)
+            {
+                SwitchToNothing();
+            }
+
+            switch (keyState)
+            {
+                case KeyState.X:
+                    inHand.gameObject.transform.Rotate(Vector3.forward, Input.mousePosition.x - deltaX, Space.Self);
+                    deltaX = Input.mousePosition.x;
+                    break;
+                case KeyState.Y:
+                    inHand.gameObject.transform.Rotate(Vector3.up, Input.mousePosition.x - deltaX, Space.Self);
+                    deltaX = Input.mousePosition.x;
+                    break;
+                case KeyState.Z:
+                    inHand.gameObject.transform.Rotate(Vector3.right, Input.mousePosition.x - deltaX, Space.Self);
+                    deltaX = Input.mousePosition.x;
+                    break;
+            }
+
+            // float xRollInput = Input.GetAxisRaw("X Roll");
+            // float zRollInput = Input.GetAxisRaw("Z Roll");
+            // //Quaternion nextRotation = Quaternion.Euler(transform.right);
+            // var xRoll = Camera.main.transform.right * xRollInput * rotateSpeed * Time.deltaTime;
+            // var zRoll = Camera.main.transform.forward * zRollInput * rotateSpeed * Time.deltaTime;
+            // var totalRoll = xRoll + zRoll;
+            // //Debug.Log(totalRoll);
+
+            // inHand.gameObject.transform.Rotate(totalRoll, Space.World);
 
             if (Input.GetMouseButtonDown(1))
             {

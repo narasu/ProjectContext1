@@ -12,7 +12,6 @@ public class SelectionOutline : MonoBehaviour
     }
     void Update()
     {
-        Debug.Log("test");
         int layerMask = 1 << 6;
         
         RaycastHit hit;
@@ -24,20 +23,18 @@ public class SelectionOutline : MonoBehaviour
                 if(cachedOutline != hit.transform.gameObject.GetComponent<Outline>() && cachedOutline != null)
                 {
                     cachedOutline.enabled = false;
-                    Debug.Log("changed hit");
                 }
 
                 cachedOutline = hit.transform.gameObject.GetComponent<Outline>();
                 cachedOutline.enabled = true;
-                Debug.Log("hit");
             }
-            
         } 
         else 
         {
             Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * 1000, Color.white);
-            cachedOutline.enabled = false;
-            Debug.Log("not hit");
+
+            if(cachedOutline != null)
+                cachedOutline.enabled = false;
         }
     }
 }
