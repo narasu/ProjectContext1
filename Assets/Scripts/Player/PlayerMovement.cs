@@ -6,12 +6,16 @@ public class PlayerMovement : MonoBehaviour
 {
     /*    Character Movement    */
     private Rigidbody rigidbody;
+    private float normalMovementSpeed;
     [SerializeField] private float movementSpeed = 8.0f;
+    [SerializeField] private float slowMovementSpeed = 4.0f;
     [SerializeField]private float levitationSpeed;
 
     private void Start()
     {
         rigidbody = GetComponent<Rigidbody>();
+
+        normalMovementSpeed = movementSpeed;
     }
 
     void Update()
@@ -24,6 +28,15 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftControl))
         {
             transform.Translate(Vector3.down * levitationSpeed * Time.deltaTime);
+        }
+
+        if(Input.GetKey(KeyCode.LeftShift))
+        {
+            movementSpeed = slowMovementSpeed;
+        }
+        else
+        {
+            movementSpeed = normalMovementSpeed;
         }
 
         //get input vector

@@ -25,19 +25,19 @@ public class PlayerLook : MonoBehaviour
 
     private Interactable target;
     private Interactable lastTarget;
-    private Player player;
+    private PlayerTransformInHand playerTransformInHand;
 
     private void Awake()
     {
         instance = this;
         camera = GetComponent<Camera>();
-        player = FindObjectOfType<Player>();
+        playerTransformInHand = FindObjectOfType<PlayerTransformInHand>();
         LockCursor();
     }
 
     private void Update()
     {
-        if(player.keyState == Player.KeyState.nothing)
+        if(playerTransformInHand.keyState == PlayerTransformInHand.KeyStates.nothing)
             CameraRotation();
 
         lastTarget = GetTarget();
