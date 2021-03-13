@@ -228,11 +228,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 943089600, guid: c2bc5d16312be0d4d80320690396885a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4977790695150609319, guid: c2bc5d16312be0d4d80320690396885a, type: 3}
       propertyPath: m_Name
       value: MovableObject (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4977790695150609319, guid: c2bc5d16312be0d4d80320690396885a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4977790695150609325, guid: c2bc5d16312be0d4d80320690396885a, type: 3}
       propertyPath: m_RootOrder
