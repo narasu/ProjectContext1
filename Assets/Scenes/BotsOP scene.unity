@@ -123,29 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &179532915 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4977790695150609319, guid: c2bc5d16312be0d4d80320690396885a, type: 3}
-  m_PrefabInstance: {fileID: 1245680042}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &179532916
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 179532915}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 3
-  outlineColor: {r: 1, g: 0.77040863, b: 0.4764151, a: 1}
-  outlineWidth: 10
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!1 &1112431373
 GameObject:
   m_ObjectHideFlags: 0
@@ -249,6 +226,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 943089600, guid: c2bc5d16312be0d4d80320690396885a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4977790695150609319, guid: c2bc5d16312be0d4d80320690396885a, type: 3}
       propertyPath: m_Name
       value: MovableObject (1)
@@ -409,7 +390,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4977790695150609325, guid: c2bc5d16312be0d4d80320690396885a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.7403865
+      value: 5.1
       objectReference: {fileID: 0}
     - target: {fileID: 4977790695150609325, guid: c2bc5d16312be0d4d80320690396885a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -417,7 +398,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4977790695150609325, guid: c2bc5d16312be0d4d80320690396885a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.909876
+      value: 4.93
       objectReference: {fileID: 0}
     - target: {fileID: 4977790695150609325, guid: c2bc5d16312be0d4d80320690396885a, type: 3}
       propertyPath: m_LocalRotation.w

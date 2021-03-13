@@ -5,6 +5,7 @@ using UnityEngine;
 public class Interactable : MonoBehaviour, IClickable
 {
     protected InteractableFSM fsm;
+    protected bool shouldHighlight;
 
     private Renderer renderer;
     //[SerializeField] private GameObject light;
@@ -61,7 +62,7 @@ public class Interactable : MonoBehaviour, IClickable
     */
 
     public virtual void HandleInteraction() {}
-
+    public virtual void HighlightInteraction() {}
     public virtual void GotoNormal()
     {
         fsm.GotoState(InteractableStateType.Normal);

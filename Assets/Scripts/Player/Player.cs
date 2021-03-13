@@ -40,7 +40,7 @@ public class Player : MonoBehaviour
         //Input event for interacting with objects
         if (Input.GetMouseButtonDown(0) && playerTransformInHand.keyState == PlayerTransformInHand.KeyStates.nothing)
         {
-            Debug.Log(playerTransformInHand.keyState);
+            //Debug.Log(playerTransformInHand.keyState);
             InteractWithObject();
         }
 
@@ -56,20 +56,20 @@ public class Player : MonoBehaviour
 
             // inHand.gameObject.transform.Rotate(totalRoll, Space.World);
 
-            if (Input.GetMouseButtonDown(1))
-            {
-                inHand.gameObject.transform.localRotation = Quaternion.Euler(Vector3.zero);
-            }
+            // if (Input.GetMouseButtonDown(1))
+            // {
+            //     inHand.gameObject.transform.localRotation = Quaternion.Euler(Vector3.zero);
+            // }
 
-            Transform t = inHand.gameObject.transform;
-            Vector3 resizeScale = t.localScale + Vector3.one * Input.mouseScrollDelta.y * 0.1f;
+            // Transform t = inHand.gameObject.transform;
+            // Vector3 resizeScale = t.localScale + Vector3.one * Input.mouseScrollDelta.y * 0.1f;
 
-            Vector3 newScale = new Vector3();
-            newScale.x = Mathf.Clamp(resizeScale.x, 0.1f, 2f);
-            newScale.y = Mathf.Clamp(resizeScale.y, 0.1f, 2f);
-            newScale.z = Mathf.Clamp(resizeScale.z, 0.1f, 2f);
+            // Vector3 newScale = new Vector3();
+            // newScale.x = Mathf.Clamp(resizeScale.x, 0.1f, 2f);
+            // newScale.y = Mathf.Clamp(resizeScale.y, 0.1f, 2f);
+            // newScale.z = Mathf.Clamp(resizeScale.z, 0.1f, 2f);
 
-            inHand.gameObject.transform.localScale = newScale;
+            // inHand.gameObject.transform.localScale = newScale;
         }
     }
     public void InteractWithObject()

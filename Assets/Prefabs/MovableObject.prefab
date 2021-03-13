@@ -21,7 +21,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4977790695150609325
 Transform:
   m_ObjectHideFlags: 0
@@ -111,6 +111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a5b03ee241d74844ad8fd0f8182e2e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unchangedRotation: 1
 --- !u!54 &4977790695150609318
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -139,7 +140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  outlineMode: 3
+  outlineMode: 0
   outlineColor: {r: 1, g: 0.77040863, b: 0.4764151, a: 1}
   outlineWidth: 10
   precomputeOutline: 0

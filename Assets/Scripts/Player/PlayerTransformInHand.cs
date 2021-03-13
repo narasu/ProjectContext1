@@ -6,9 +6,12 @@ public class PlayerTransformInHand : MonoBehaviour
 {
     public enum KeyStates {nothing, X, Y, Z};
     [HideInInspector] public KeyStates keyState;
+    [SerializeField] GameObject head;
+    public float test;
+    Quaternion startRotation;
     Vector2 startingMousePos;
-    Vector3 startRotation;
     float deltaX;
+    float lastMousePos;
     Player player;
     void Start()
     {
@@ -19,6 +22,10 @@ public class PlayerTransformInHand : MonoBehaviour
     {
         if (player.inHand!=null)
         {
+            float moveDampener = 0.05f;
+            Vector3 moveAlongVector = (player.inHand.gameObject.transform.position - head.transform.position) * Input.mouseScrollDelta.y * moveDampener;
+            player.inHand.gameObject.transform.position += moveAlongVector;
+
             if(Input.GetKeyDown(KeyCode.X) && keyState != KeyStates.X)
                 SwitchToKey(KeyStates.X);
             else if(Input.GetKeyDown(KeyCode.X) && keyState == KeyStates.X)
@@ -37,15 +44,16 @@ public class PlayerTransformInHand : MonoBehaviour
             switch (keyState)
             {
                 case KeyStates.X:
-                    player.inHand.gameObject.transform.Rotate(Vector3.forward, Input.mousePosition.x - deltaX, Space.Self);
+                    player.inHand.gameObject.transform.localRotation = startRotation * Quaternion.Euler(0, 0, Input.mousePosition.x - Screen.width / 2);
                     deltaX = Input.mousePosition.x;
                     break;
                 case KeyStates.Y:
-                    player.inHand.gameObject.transform.Rotate(Vector3.up, Input.mousePosition.x - deltaX, Space.Self);
+                    //player.inHand.gameObject.transform.Rotate(Vector3.up, Input.mousePosition.x - deltaX, Space.Self);
+                    player.inHand.gameObject.transform.localRotation = startRotation * Quaternion.Euler(0, Input.mousePosition.x - Screen.width / 2, 0);
                     deltaX = Input.mousePosition.x;
                     break;
                 case KeyStates.Z:
-                    player.inHand.gameObject.transform.Rotate(Vector3.right, Input.mousePosition.x - deltaX, Space.Self);
+                    player.inHand.gameObject.transform.localRotation = startRotation * Quaternion.Euler(Input.mousePosition.x - Screen.width / 2, 0, 0);
                     deltaX = Input.mousePosition.x;
                     break;
             }
@@ -62,14 +70,12 @@ public class PlayerTransformInHand : MonoBehaviour
 
     private void SwitchToKey(KeyStates keyStateToSwitchTo)
     {
-        // if(Input.GetMouseButtonDown(0) && keyState != KeyStates.nothing)
-        // {
-        //     keyState = KeyStates.nothing;
-        // }
+        startRotation = player.inHand.gameObject.transform.localRotation;
+        Debug.Log(startRotation);
+        player.inHand.GetComponent<Movable>().unchangedRotation = false;
         keyState = keyStateToSwitchTo;
-        startingMousePos = Input.mousePosition;
-        startRotation = player.inHand.gameObject.transform.localRotation.eulerAngles;
         Cursor.lockState = CursorLockMode.None;
+        //Cursor.visible = true;
 
         GameObject gizmo3D = player.inHand.transform.GetChild(0).gameObject;
 
@@ -97,7 +103,9 @@ public class PlayerTransformInHand : MonoBehaviour
 
     private void SwitchToNothing()
     {
+        player.inHand.GetComponent<Movable>().unchangedRotation = true;
         keyState = KeyStates.nothing;
+        //ursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
 
         GameObject gizmo3D = player.inHand.transform.GetChild(0).gameObject;
