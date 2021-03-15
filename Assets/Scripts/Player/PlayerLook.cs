@@ -81,11 +81,11 @@ public class PlayerLook : MonoBehaviour
         }
 
         //clamp rotation when looking down
-        if (xAxisClamp < -60.0f)
+        if (xAxisClamp < -80.0f)
         {
-            xAxisClamp = -60.0f;
+            xAxisClamp = -80.0f;
             mouseY = 0.0f;
-            ClampXAxisRotationToValue(60.0f);
+            ClampXAxisRotationToValue(80.0f);
         }
 
         transform.Rotate(Vector3.left * mouseY);

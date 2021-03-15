@@ -35,41 +35,44 @@ public class Player : MonoBehaviour
 
         playerTransformInHand = gameObject.GetComponent<PlayerTransformInHand>();
     }
+    // private void Update()
+    // {
+    //     //Input event for interacting with objects
+        
+
+    //     if (inHand!=null)
+    //     {
+    //         // float xRollInput = Input.GetAxisRaw("X Roll");
+    //         // float zRollInput = Input.GetAxisRaw("Z Roll");
+    //         // //Quaternion nextRotation = Quaternion.Euler(transform.right);
+    //         // var xRoll = Camera.main.transform.right * xRollInput * rotateSpeed * Time.deltaTime;
+    //         // var zRoll = Camera.main.transform.forward * zRollInput * rotateSpeed * Time.deltaTime;
+    //         // var totalRoll = xRoll + zRoll;
+    //         // //Debug.Log(totalRoll);
+
+    //         // inHand.gameObject.transform.Rotate(totalRoll, Space.World);
+
+    //         // if (Input.GetMouseButtonDown(1))
+    //         // {
+    //         //     inHand.gameObject.transform.localRotation = Quaternion.Euler(Vector3.zero);
+    //         // }
+
+    //         // Transform t = inHand.gameObject.transform;
+    //         // Vector3 resizeScale = t.localScale + Vector3.one * Input.mouseScrollDelta.y * 0.1f;
+
+    //         // Vector3 newScale = new Vector3();
+    //         // newScale.x = Mathf.Clamp(resizeScale.x, 0.1f, 2f);
+    //         // newScale.y = Mathf.Clamp(resizeScale.y, 0.1f, 2f);
+    //         // newScale.z = Mathf.Clamp(resizeScale.z, 0.1f, 2f);
+
+    //         // inHand.gameObject.transform.localScale = newScale;
+    //     }
+    // }
     private void Update()
     {
-        //Input event for interacting with objects
         if (Input.GetMouseButtonDown(0) && playerTransformInHand.keyState == PlayerTransformInHand.KeyStates.nothing)
         {
-            //Debug.Log(playerTransformInHand.keyState);
             InteractWithObject();
-        }
-
-        if (inHand!=null)
-        {
-            // float xRollInput = Input.GetAxisRaw("X Roll");
-            // float zRollInput = Input.GetAxisRaw("Z Roll");
-            // //Quaternion nextRotation = Quaternion.Euler(transform.right);
-            // var xRoll = Camera.main.transform.right * xRollInput * rotateSpeed * Time.deltaTime;
-            // var zRoll = Camera.main.transform.forward * zRollInput * rotateSpeed * Time.deltaTime;
-            // var totalRoll = xRoll + zRoll;
-            // //Debug.Log(totalRoll);
-
-            // inHand.gameObject.transform.Rotate(totalRoll, Space.World);
-
-            // if (Input.GetMouseButtonDown(1))
-            // {
-            //     inHand.gameObject.transform.localRotation = Quaternion.Euler(Vector3.zero);
-            // }
-
-            // Transform t = inHand.gameObject.transform;
-            // Vector3 resizeScale = t.localScale + Vector3.one * Input.mouseScrollDelta.y * 0.1f;
-
-            // Vector3 newScale = new Vector3();
-            // newScale.x = Mathf.Clamp(resizeScale.x, 0.1f, 2f);
-            // newScale.y = Mathf.Clamp(resizeScale.y, 0.1f, 2f);
-            // newScale.z = Mathf.Clamp(resizeScale.z, 0.1f, 2f);
-
-            // inHand.gameObject.transform.localScale = newScale;
         }
     }
     public void InteractWithObject()

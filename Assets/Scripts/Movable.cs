@@ -5,13 +5,14 @@ using UnityEngine.Events;
 
 public class Movable : Interactable
 {
-    private Rigidbody rb;
-    Collider collider;
+    public bool unchangedRotation = true;
     bool isGrabbed;
+    Rigidbody rb;
+    Collider collider;
     Vector3 extraLocalPos;
     Transform playerTransform;
+    Quaternion startRotation;
     PlayerTransformInHand transformInHand;
-    public bool unchangedRotation = true;
 
     protected override void Awake()
     {
@@ -37,15 +38,18 @@ public class Movable : Interactable
     // Set position to player's hand, and set all velocities to zero.
     public void Grab()
     {
+        //Player.Instance.Hand.transform.position = transform.position;
         rb.velocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
-        transform.SetParent(Player.Instance.Hand.transform.parent.transform.parent.GetChild(1));
+        transform.SetParent(playerTransform.GetChild(1).transform);
+        //transform.SetParent(Player.Instance.Hand);
         //transform.localPosition = Vector3.zero;
         rb.constraints = RigidbodyConstraints.FreezeAll;
         rb.useGravity = true;
         collider.isTrigger = true;
         isGrabbed = true;
 
+        startRotation = transform.localRotation;
 
         Color c = GetComponent<Renderer>().material.color;
         c.a = 0.5f;
@@ -54,7 +58,6 @@ public class Movable : Interactable
 
     void Update()
     {
-        //Debug.Log(transform.localRotation.eulerAngles);
         if(isGrabbed)
         {
             transform.position = new Vector3(transform.position.x, Player.Instance.Hand.transform.position.y, transform.position.z);
