@@ -42,6 +42,7 @@ public class PlayerLook : MonoBehaviour
 
         lastTarget = GetTarget();
         RaycastHit hit;
+        int layerMask = LayerMask.GetMask("BuildingBlock");
         //Cast a ray and scan for an Interactable target
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, raycastDistance)) 
         {

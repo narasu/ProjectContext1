@@ -16,22 +16,20 @@ public class PlayerInventory : MonoBehaviour
         RaycastHit hit;
         if(Physics.Raycast(ray, out hit))
         {
-            if(hit.transform.gameObject.GetComponent<Button>())
+            if(hit.transform.gameObject.GetComponent<IButton>() != null && Input.GetMouseButtonDown(0))
             {
-                Debug.Log("test");
+                hit.transform.gameObject.GetComponent<IButton>().Interact();
+                //FindObjectOfType<Player>().InteractWithObject();
             }
         }
         if(Input.GetKeyDown(KeyCode.Tab) && Player.Instance.inHand == null)
         {
             inventory.transform.position = inventoryPos.position;
             inventory.transform.LookAt(transform.position);
-            inventory.transform.localRotation *= Quaternion.Euler(20, -180, 0);
+
+            int slopeInventoryPanelRotation = 10;
+            inventory.transform.localRotation *= Quaternion.Euler(slopeInventoryPanelRotation, -180, 0);
             inventory.SetActive(true);
         }
-    }
-
-    public void QuitInventory()
-    {
-        inventory.SetActive(false);
     }
 }
