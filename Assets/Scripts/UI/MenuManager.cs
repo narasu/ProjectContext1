@@ -44,7 +44,7 @@ public class MenuManager : MonoBehaviour
 
     public void OpenMenu(MenuType _type)
     {
-        if (currentMenu == _type)
+        if (currentMenu == _type || menus[_type] == null)
         {
             return;
         }

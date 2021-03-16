@@ -40,31 +40,45 @@ public class PlayerLook : MonoBehaviour
         if(playerTransformInHand.keyState == PlayerTransformInHand.KeyStates.nothing)
             CameraRotation();
 
-        lastTarget = GetTarget();
+
+        ScanForTargets();
+    }
+    void ScanForTargets()
+    {
+        lastTarget = target;
         RaycastHit hit;
         int layerMask = LayerMask.GetMask("BuildingBlock");
         //Cast a ray and scan for an Interactable target
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, raycastDistance)) 
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, raycastDistance, layerMask))
         {
             //Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
-            Interactable i = hit.transform.GetComponent<Interactable>();
-            
-            if(i!=null && lastTarget != i)
+            Interactable interactable = hit.transform.GetComponent<Interactable>();
+
+            if (interactable == null)
             {
-                if (i.isActiveAndEnabled)
-                {
-                    i.Highlight();
-                    SetTarget(i);
-                }
-                
+                SetTarget(null);
+                return;
             }
-            else if (lastTarget!=i)
+
+            if (interactable != null && lastTarget != interactable)
+            {
+                if (interactable.isActiveAndEnabled)
+                {
+                    interactable.Highlight();
+                    SetTarget(interactable);
+                }
+
+            }
+            else if (lastTarget != interactable)
             {
                 SetTarget(null);
             }
         }
+        else
+        {
+            SetTarget(null);
+        }
     }
-
     private void CameraRotation()
     {
         //set mouse movement values

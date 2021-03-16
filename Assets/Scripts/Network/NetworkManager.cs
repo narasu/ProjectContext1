@@ -21,7 +21,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     public override void OnJoinedLobby()
     {
         Debug.Log("Joined lobby.");
-        MenuManager.Instance.OpenMenu(MenuType.Title);
+        MenuManager.Instance.OpenMenu(MenuType.ServerList);
 
     }
 
