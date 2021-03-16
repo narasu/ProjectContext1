@@ -12,7 +12,7 @@ public class DragButton : MonoBehaviour, IButton
         {
             //Transform headTrans = FindObjectOfType<Player>().transform.GetChild(1).transform;
             GameObject prefab = Instantiate(gameObjectToSpawnIn, Player.Instance.Hand.transform.position, Quaternion.identity);
-            //FindObjectOfType<Player>().InteractWithObject();
+            FindObjectOfType<Player>().InteractWithObject();
         }
     }
 }
