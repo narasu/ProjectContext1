@@ -25,21 +25,24 @@ public class PlayerLook : MonoBehaviour
 
     private Interactable target;
     private Interactable lastTarget;
+    private PlayerTransformInHand playerTransformInHand;
 
     private void Awake()
     {
         instance = this;
         camera = GetComponent<Camera>();
+        playerTransformInHand = FindObjectOfType<PlayerTransformInHand>();
         LockCursor();
     }
 
     private void Update()
     {
-        
-        CameraRotation();
+        if(playerTransformInHand.keyState == PlayerTransformInHand.KeyStates.nothing)
+            CameraRotation();
 
         lastTarget = GetTarget();
         RaycastHit hit;
+        int layerMask = LayerMask.GetMask("BuildingBlock");
         //Cast a ray and scan for an Interactable target
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, raycastDistance)) 
         {
@@ -79,11 +82,11 @@ public class PlayerLook : MonoBehaviour
         }
 
         //clamp rotation when looking down
-        if (xAxisClamp < -60.0f)
+        if (xAxisClamp < -80.0f)
         {
-            xAxisClamp = -60.0f;
+            xAxisClamp = -80.0f;
             mouseY = 0.0f;
-            ClampXAxisRotationToValue(60.0f);
+            ClampXAxisRotationToValue(80.0f);
         }
 
         transform.Rotate(Vector3.left * mouseY);
