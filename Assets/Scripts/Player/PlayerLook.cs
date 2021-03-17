@@ -40,7 +40,6 @@ public class PlayerLook : MonoBehaviour
         if(playerTransformInHand.keyState == PlayerTransformInHand.KeyStates.nothing)
             CameraRotation();
 
-
         ScanForTargets();
     }
     void ScanForTargets()

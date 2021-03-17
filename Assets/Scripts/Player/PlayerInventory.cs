@@ -5,10 +5,17 @@ using UnityEngine.UI;
 public class PlayerInventory : MonoBehaviour
 {
     [SerializeField] GameObject inventory;
+    public GameObject[] inventoryPages;
+    public int currentPageIndex;
     Transform inventoryPos;
     void Start()
     {
         inventoryPos = transform.GetChild(2).transform;
+        for (int i = 0; i < inventoryPages.Length; i++)
+        {
+            inventoryPages[i].SetActive(false);
+        }
+        inventoryPages[0].SetActive(true);
     }
     void Update()
     {
@@ -16,10 +23,9 @@ public class PlayerInventory : MonoBehaviour
         RaycastHit hit;
         if(Physics.Raycast(ray, out hit))
         {
-            if(hit.transform.gameObject.GetComponent<IButton>() != null && Input.GetMouseButtonDown(0))
+            if(hit.transform.gameObject.GetComponent<IButton>() != null && Input.GetMouseButtonDown(0) && Player.Instance.inHand == null)
             {
                 hit.transform.gameObject.GetComponent<IButton>().Interact();
-                //FindObjectOfType<Player>().InteractWithObject();
             }
         }
         if(Input.GetKeyDown(KeyCode.Tab) && Player.Instance.inHand == null)

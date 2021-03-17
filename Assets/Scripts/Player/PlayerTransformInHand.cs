@@ -62,9 +62,9 @@ public class PlayerTransformInHand : MonoBehaviour
                 if(gizmo.transform.position != player.inHand.gameObject.transform.position){
                     gizmo.transform.position = player.inHand.gameObject.transform.position;
                 }
-                if(gizmo.transform.rotation != player.inHand.gameObject.transform.rotation){
-                    gizmo.transform.rotation = player.inHand.gameObject.transform.rotation;
-                }
+                // if(gizmo.transform.rotation != player.inHand.gameObject.transform.rotation){
+                //     gizmo.transform.rotation = player.inHand.gameObject.transform.rotation;
+                // }
             }
 
             if(keyState == KeyStates.rotateSelection || keyState == KeyStates.rotateX || keyState == KeyStates.rotateZ || keyState == KeyStates.rotateY){
@@ -161,8 +161,7 @@ public class PlayerTransformInHand : MonoBehaviour
         startRotation = player.inHand.gameObject.transform.localRotation;
         startScale = player.inHand.gameObject.transform.localScale;
         lastMousePos = Input.mousePosition.x - (Screen.width / 2);
-
-        player.inHand.GetComponent<Movable>().unchangedRotation = false;
+        gizmo.transform.rotation = player.inHand.gameObject.transform.rotation;
 
         keyState = keyStateToSwitchTo;
         Cursor.lockState = CursorLockMode.None;
@@ -196,6 +195,7 @@ public class PlayerTransformInHand : MonoBehaviour
     {
         keyState = keyStateToSwitchTo;
         Cursor.lockState = CursorLockMode.Locked;
+        gizmo.transform.rotation = player.inHand.gameObject.transform.rotation;
         gizmo.SetActive(true);
         for (int i = 0; i < 3; i++)
         {
@@ -205,7 +205,6 @@ public class PlayerTransformInHand : MonoBehaviour
 
     private void SwitchToNothing()
     {
-        player.inHand.GetComponent<Movable>().unchangedRotation = true;
         keyState = KeyStates.nothing;
         //ursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
