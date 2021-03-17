@@ -26,18 +26,20 @@ public class PlayerLook : MonoBehaviour
     private Interactable target;
     private Interactable lastTarget;
     private PlayerTransformInHand playerTransformInHand;
+    private PlayerEditMaterial playerEditMaterial;
 
     private void Awake()
     {
         instance = this;
         camera = GetComponent<Camera>();
         playerTransformInHand = FindObjectOfType<PlayerTransformInHand>();
+        playerEditMaterial = FindObjectOfType<PlayerEditMaterial>();
         LockCursor();
     }
 
     private void Update()
     {
-        if(playerTransformInHand.keyState == PlayerTransformInHand.KeyStates.nothing)
+        if(playerTransformInHand.keyState == PlayerTransformInHand.KeyStates.nothing && !playerEditMaterial.editMatActive)
             CameraRotation();
 
         ScanForTargets();

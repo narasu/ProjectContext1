@@ -41,12 +41,13 @@ public class Player : MonoBehaviour
         RaycastHit hit;
         if(Physics.Raycast(ray, out hit))
         {
-            if (Input.GetMouseButtonDown(0) && playerTransformInHand.keyState == PlayerTransformInHand.KeyStates.nothing && hit.transform.gameObject.GetComponent<IButton>() == null) 
+            if (Input.GetMouseButtonDown(0) && playerTransformInHand.keyState == PlayerTransformInHand.KeyStates.nothing && hit.transform.gameObject.GetComponent<IButton>() == null
+                && !FindObjectOfType<PlayerEditMaterial>().editMatActive) 
             {
                 InteractWithObject();
             }
         }
-        else if(Input.GetMouseButtonDown(0) && playerTransformInHand.keyState == PlayerTransformInHand.KeyStates.nothing)
+        else if(Input.GetMouseButtonDown(0) && playerTransformInHand.keyState == PlayerTransformInHand.KeyStates.nothing && !FindObjectOfType<PlayerEditMaterial>().editMatActive)
         {
             InteractWithObject();
         }
