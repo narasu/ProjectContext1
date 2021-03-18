@@ -44,6 +44,7 @@ public class Player : MonoBehaviour
             if (Input.GetMouseButtonDown(0) && playerTransformInHand.keyState == PlayerTransformInHand.KeyStates.nothing && hit.transform.gameObject.GetComponent<IButton>() == null
                 && !FindObjectOfType<PlayerEditMaterial>().editMatActive) 
             {
+                Debug.Log("klik");
                 InteractWithObject();
             }
         }
@@ -56,11 +57,11 @@ public class Player : MonoBehaviour
     {
         if (inHand != null)
         {
-            if (inHand.GetComponent<Rigidbody>()==null) //check if an object got removed but failed to clear
-            {
-                ClearHand();
-                return;
-            }
+            // if (inHand.GetComponent<Rigidbody>()==null) //check if an object got removed but failed to clear
+            // {
+            //     ClearHand();
+            //     return;
+            // }
             inHand.Drop();
             ClearHand();
             return;

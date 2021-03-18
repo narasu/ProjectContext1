@@ -37,8 +37,13 @@ namespace HSVPicker
             }
         }
 
+        void Awake()
+        {
+        }
+
         private void Start()
         {
+            transform.parent.transform.parent.gameObject.SetActive(false);
             Setup.AlphaSlidiers.Toggle(Setup.ShowAlpha);
             Setup.ColorToggleElement.Toggle(Setup.ShowColorSliderToggle);
             Setup.RgbSliders.Toggle(Setup.ShowRgb);

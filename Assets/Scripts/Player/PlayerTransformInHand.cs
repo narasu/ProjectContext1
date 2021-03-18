@@ -42,9 +42,9 @@ public class PlayerTransformInHand : MonoBehaviour
             Vector3 resizeScale = player.inHand.gameObject.transform.localScale + Vector3.one * Input.mouseScrollDelta.y * 0.1f;
 
             Vector3 newScale = new Vector3();
-            newScale.x = Mathf.Clamp(resizeScale.x, 0.1f, 20f);
-            newScale.y = Mathf.Clamp(resizeScale.y, 0.1f, 20f);
-            newScale.z = Mathf.Clamp(resizeScale.z, 0.1f, 20f);
+            newScale.x = Mathf.Clamp(resizeScale.x, 0.1f, 50f);
+            newScale.y = Mathf.Clamp(resizeScale.y, 0.1f, 50f);
+            newScale.z = Mathf.Clamp(resizeScale.z, 0.1f, 50f);
 
             player.inHand.gameObject.transform.localScale = newScale;
 
@@ -147,7 +147,6 @@ public class PlayerTransformInHand : MonoBehaviour
                     }
                     break;
                 case KeyStates.resizeZ:
-                    //clampedScale = Mathf.Clamp((Input.mousePosition.x - lastMousePos - Screen.width / 2) * scaleDampener, 0f, 100f);
                     player.inHand.gameObject.transform.localScale = new Vector3((Input.mousePosition.x - lastMousePos - Screen.width / 2) * scaleDampener, 0, 0) + startScale;
                     if(Input.GetMouseButtonDown(0)){
                         SwitchToSelection(KeyStates.resizeSelection);
@@ -166,7 +165,6 @@ public class PlayerTransformInHand : MonoBehaviour
 
         keyState = keyStateToSwitchTo;
         Cursor.lockState = CursorLockMode.None;
-        //Cursor.visible = true;
 
         gizmo.SetActive(true);
 
@@ -207,7 +205,6 @@ public class PlayerTransformInHand : MonoBehaviour
     private void SwitchToNothing()
     {
         keyState = KeyStates.nothing;
-        //ursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
 
         gizmo.SetActive(false);

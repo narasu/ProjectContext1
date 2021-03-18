@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerEditMaterial : MonoBehaviour
 {
-    public bool editMatActive;
+    [HideInInspector] public bool editMatActive;
     [SerializeField] GameObject editMatUI;
     private Interactable lookingAt;
     void Update()
@@ -21,7 +21,7 @@ public class PlayerEditMaterial : MonoBehaviour
                 {
                     RaycastHit hit;
                     int layerMask = LayerMask.GetMask("BuildingBlock");
-                    if (Physics.Raycast(transform.position, Camera.main.transform.forward, out hit, Mathf.Infinity, layerMask))
+                    if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, Mathf.Infinity, layerMask))
                     {
                         hit.transform.GetComponent<Movable>().ActiveEditMaterial();
                         return;
@@ -39,7 +39,7 @@ public class PlayerEditMaterial : MonoBehaviour
             {
                 RaycastHit hit;
                 int layerMask = LayerMask.GetMask("BuildingBlock");
-                if (Physics.Raycast(transform.position, Camera.main.transform.forward, out hit, Mathf.Infinity, layerMask))
+                if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, Mathf.Infinity, layerMask))
                 {
                     hit.transform.GetComponent<Movable>().DeactiveEditMaterial();
                     return;
