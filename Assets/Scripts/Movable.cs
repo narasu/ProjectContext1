@@ -4,10 +4,11 @@ using UnityEngine;
 using UnityEngine.Events;
     public class Movable : Interactable
     {
-        bool isGrabbed;
+        [HideInInspector] public float resizeScaler;
         public Color Color = Color.red;
         public bool SetColorOnStart = false;
         protected HSVPicker.ColorPicker picker;
+        bool isGrabbed;
         Transform playerTransform;
         Transform hand;
         Quaternion startRotation;

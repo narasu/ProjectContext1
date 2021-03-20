@@ -5,8 +5,8 @@ using UnityEngine.Events;
 
 public class BuildingBlockMoveable : Movable, IBuildingBlock
 {
-    [SerializeField] Color selectionOutline;
-    [SerializeField] Color grabOutline;
+    [SerializeField] Color selectionOutline = new Color(255, 213, 143);
+    [SerializeField] Color grabOutline = new Color(194, 238, 102);
     Rigidbody rb;
     Collider collider;
     Material material;
@@ -16,6 +16,8 @@ public class BuildingBlockMoveable : Movable, IBuildingBlock
         rb = GetComponent<Rigidbody>();
         collider = GetComponent<Collider>();
         material = renderer.material;
+
+        resizeScaler = transform.localScale.x / 10;
     }
     public override void Grab()
     {
@@ -24,7 +26,6 @@ public class BuildingBlockMoveable : Movable, IBuildingBlock
         rb.angularVelocity = Vector3.zero;
         rb.constraints = RigidbodyConstraints.FreezeAll;
         collider.isTrigger = true;
-        Debug.Log("test");
         gameObject.GetComponent<Outline>().enabled = true;
         gameObject.GetComponent<Outline>().OutlineColor = grabOutline;
     }
