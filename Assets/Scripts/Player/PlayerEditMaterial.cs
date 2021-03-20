@@ -23,11 +23,11 @@ public class PlayerEditMaterial : MonoBehaviour
                     int layerMask = LayerMask.GetMask("BuildingBlock");
                     if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, Mathf.Infinity, layerMask))
                     {
-                        hit.transform.GetComponent<Movable>().ActiveEditMaterial();
+                        hit.transform.GetComponent<IBuildingBlock>().ActiveEditMaterial();
                         return;
                     }
                 }
-                Player.Instance.inHand.GetComponent<Movable>().ActiveEditMaterial();
+                Player.Instance.inHand.GetComponent<IBuildingBlock>().ActiveEditMaterial();
             }
         }
         else if(editMatActive && Input.GetMouseButtonDown(1))
@@ -41,11 +41,11 @@ public class PlayerEditMaterial : MonoBehaviour
                 int layerMask = LayerMask.GetMask("BuildingBlock");
                 if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, Mathf.Infinity, layerMask))
                 {
-                    hit.transform.GetComponent<Movable>().DeactiveEditMaterial();
+                    hit.transform.GetComponent<IBuildingBlock>().DeactiveEditMaterial();
                     return;
                 }
             }
-            Player.Instance.inHand.GetComponent<Movable>().DeactiveEditMaterial();
+            Player.Instance.inHand.GetComponent<IBuildingBlock>().DeactiveEditMaterial();
         }
     }
     void LateUpdate()

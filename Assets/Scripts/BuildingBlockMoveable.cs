@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
-public class BuildingBlockMoveable : Movable
+public class BuildingBlockMoveable : Movable, IBuildingBlock
 {
+    [SerializeField] Color selectionOutline;
+    [SerializeField] Color grabOutline;
     Rigidbody rb;
     Collider collider;
     Material material;
@@ -21,21 +24,31 @@ public class BuildingBlockMoveable : Movable
         rb.angularVelocity = Vector3.zero;
         rb.constraints = RigidbodyConstraints.FreezeAll;
         collider.isTrigger = true;
+        Debug.Log("test");
+        gameObject.GetComponent<Outline>().enabled = true;
+        gameObject.GetComponent<Outline>().OutlineColor = grabOutline;
     }
 
     public override void Drop()
     {
         base.Drop();
         collider.isTrigger = false;
+        gameObject.GetComponent<Outline>().enabled = false;
+        gameObject.GetComponent<Outline>().OutlineColor = selectionOutline;
     }
 
-    public override void HighlightInteraction()
+    public override void HighlightInteractionOn()
     {
-        gameObject.GetComponent<Outline>().enabled = !gameObject.GetComponent<Outline>().enabled;
+        gameObject.GetComponent<Outline>().enabled = true;
+    }
+    public override void HighlightInteractionOff()
+    {
+        gameObject.GetComponent<Outline>().enabled = false;
     }
 
     public override void ActiveEditMaterial()
     {
+        picker = FindObjectOfType<HSVPicker.ColorPicker>();
         picker.onValueChanged.AddListener(color =>
         {
             material.color = color;

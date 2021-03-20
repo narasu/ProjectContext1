@@ -5,9 +5,9 @@ using UnityEngine.Events;
     public class Movable : Interactable
     {
         bool isGrabbed;
-        protected HSVPicker.ColorPicker picker;
         public Color Color = Color.red;
         public bool SetColorOnStart = false;
+        protected HSVPicker.ColorPicker picker;
         Transform playerTransform;
         Transform hand;
         Quaternion startRotation;
@@ -19,7 +19,6 @@ using UnityEngine.Events;
             base.Awake();
             playerTransform = FindObjectOfType<Player>().transform;
             transformInHand = FindObjectOfType<PlayerTransformInHand>();
-            picker = FindObjectOfType<HSVPicker.ColorPicker>();
             hand = GameObject.FindGameObjectWithTag("Hand").transform;
         }
 
@@ -51,8 +50,8 @@ using UnityEngine.Events;
 
         public virtual void Drop()
         {
-            Debug.Log("drop");
             fsm.GotoState(InteractableStateType.Normal);
+            Debug.Log("drop2");
             transform.SetParent(null);
             isGrabbed = false;
         }
