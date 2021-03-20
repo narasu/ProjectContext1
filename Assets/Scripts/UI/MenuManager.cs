@@ -42,16 +42,30 @@ public class MenuManager : MonoBehaviour
         OpenMenu(MenuType.Loading);
     }
 
-    public void OpenMenu(MenuType _type)
+    public void OpenMenu(int menuType)
     {
-        if (currentMenu == _type || menus[_type] == null)
+        MenuType t = (MenuType)menuType;
+
+        if (currentMenu == t || menus[t] == null)
         {
             return;
         }
         CloseMenu();
-        menus[_type].Open();
-        currentMenu = _type;
+        menus[t].Open();
+        currentMenu = t;
     }
+    public void OpenMenu(MenuType menuType)
+    {
+        if (currentMenu == menuType || menus[menuType] == null)
+        {
+            return;
+        }
+        CloseMenu();
+        menus[menuType].Open();
+        currentMenu = menuType;
+    }
+
+
 
     public void CloseMenu()
     {

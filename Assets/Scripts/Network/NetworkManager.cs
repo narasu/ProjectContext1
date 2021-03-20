@@ -6,7 +6,8 @@ using TMPro;
 
 public class NetworkManager : MonoBehaviourPunCallbacks
 {
-    [SerializeField] TMP_InputField roomNameInputField;
+    public TMP_InputField roomNameInputField;
+    public TMP_InputField errorText;
     void Start()
     {
         Debug.Log("Connecting to master...");
@@ -24,16 +25,36 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     {
         Debug.Log("Joined lobby.");
         MenuManager.Instance.OpenMenu(MenuType.ServerList);
-        CreateRooms();
+        
     }
 
-    public void CreateRooms()
+    public void CreateRoom()
     {
-
         PhotonNetwork.CreateRoom("Team1");
-        //PhotonNetwork.CreateRoom("Team2");
     }
 
+    public override void OnJoinedRoom()
+    {
+        MenuManager.Instance.OpenMenu(MenuType.Room);
+    }
+
+    public override void OnCreateRoomFailed(short returnCode, string message)
+    {
+        Debug.Log(returnCode);
+        MenuManager.Instance.OpenMenu(MenuType.Error);
+        errorText.text = "Create room failed: " + message;
+    }
+
+    public void LeaveRoom()
+    {
+        MenuManager.Instance.OpenMenu(MenuType.Loading);
+        PhotonNetwork.LeaveRoom();
+    }
+
+    public override void OnLeftRoom()
+    {
+        MenuManager.Instance.OpenMenu(MenuType.ServerList);
+    }
     //public void JoinRoom(string roomName)
     //{
     //    PhotonNetwork.JoinRoom(roomName);
