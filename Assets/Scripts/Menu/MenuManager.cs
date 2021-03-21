@@ -46,6 +46,7 @@ public class MenuManager : MonoBehaviour
     {
         MenuType t = (MenuType)menuType;
 
+        
         if (currentMenu == t || menus[t] == null)
         {
             return;
@@ -56,7 +57,7 @@ public class MenuManager : MonoBehaviour
     }
     public void OpenMenu(MenuType menuType)
     {
-        if (currentMenu == menuType || menus[menuType] == null)
+        if (currentMenu == menuType || !menus.ContainsKey(menuType))
         {
             return;
         }
@@ -69,6 +70,15 @@ public class MenuManager : MonoBehaviour
 
     public void CloseMenu()
     {
-        menus[currentMenu].Close();
+
+        if (!menus.ContainsKey(currentMenu))
+        {
+            return;
+        }
+        if (menus[currentMenu].isActiveAndEnabled)
+        {
+            menus[currentMenu].Close();
+        }
+        
     }
 }

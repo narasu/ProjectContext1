@@ -3,11 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using TMPro;
+using Photon.Realtime;
 
 public class NetworkManager : MonoBehaviourPunCallbacks
 {
     public TMP_InputField roomNameInputField;
-    public TMP_InputField errorText;
+    public TMP_Text roomNameText;
+    public TMP_Text errorText;
+    public Transform roomListContent;
+    public GameObject roomListItemPrefab;
     void Start()
     {
         Debug.Log("Connecting to master...");
@@ -24,18 +28,24 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     public override void OnJoinedLobby()
     {
         Debug.Log("Joined lobby.");
-        MenuManager.Instance.OpenMenu(MenuType.ServerList);
+        MenuManager.Instance.OpenMenu(MenuType.Main);
         
     }
 
     public void CreateRoom()
     {
-        PhotonNetwork.CreateRoom("Team1");
+        if (string.IsNullOrEmpty(roomNameInputField.text))
+        {
+            return;
+        }
+        MenuManager.Instance.OpenMenu(MenuType.Loading);
+        PhotonNetwork.CreateRoom(roomNameInputField.text);
     }
 
     public override void OnJoinedRoom()
     {
         MenuManager.Instance.OpenMenu(MenuType.Room);
+        roomNameText.text = PhotonNetwork.CurrentRoom.Name;
     }
 
     public override void OnCreateRoomFailed(short returnCode, string message)
@@ -53,10 +63,24 @@ public class NetworkManager : MonoBehaviourPunCallbacks
 
     public override void OnLeftRoom()
     {
-        MenuManager.Instance.OpenMenu(MenuType.ServerList);
+        MenuManager.Instance.OpenMenu(MenuType.Main);
     }
-    //public void JoinRoom(string roomName)
-    //{
-    //    PhotonNetwork.JoinRoom(roomName);
-    //}
+
+    public override void OnRoomListUpdate(List<RoomInfo> roomList)
+    {
+        foreach(Transform t in roomListContent)
+        {
+            Destroy(t.gameObject);
+        }
+        for(int i = 0; i < roomList.Count; i++)
+        {
+            GameObject item = Instantiate(roomListItemPrefab, roomListContent);
+            item.GetComponent<RoomListItem>()?.Initialize(roomList[i]);
+        }
+    }
+    public void JoinRoom(RoomInfo info)
+    {
+        PhotonNetwork.JoinRoom(info.Name);
+        MenuManager.Instance.OpenMenu(MenuType.Loading);
+    }
 }
