@@ -7,11 +7,36 @@ using Photon.Realtime;
 
 public class NetworkManager : MonoBehaviourPunCallbacks
 {
+    private static NetworkManager instance;
+    public static NetworkManager Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = FindObjectOfType<NetworkManager>();
+            }
+            return instance;
+        }
+    }
     public TMP_InputField roomNameInputField;
     public TMP_Text roomNameText;
     public TMP_Text errorText;
     public Transform roomListContent;
     public GameObject roomListItemPrefab;
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+
+        if (instance != this)
+        {
+            Destroy(gameObject);
+        }
+    }
     void Start()
     {
         Debug.Log("Connecting to master...");
