@@ -5,8 +5,9 @@ using UnityEngine;
 public class Interactable : MonoBehaviour, IClickable
 {
     protected InteractableFSM fsm;
+    protected bool shouldHighlight;
 
-    private Renderer renderer;
+    protected Renderer renderer;
     //[SerializeField] private GameObject light;
 
     //Create FSM
@@ -19,7 +20,7 @@ public class Interactable : MonoBehaviour, IClickable
         
     }
 
-    void Start()
+    protected virtual void Start()
     {
         //Initialize FSM and add states
         fsm.Initialize(this);
@@ -32,7 +33,7 @@ public class Interactable : MonoBehaviour, IClickable
         GotoNormal();
     }
 
-    void Update()
+    protected virtual void Update()
     {
         fsm.UpdateState();
     }
@@ -61,7 +62,7 @@ public class Interactable : MonoBehaviour, IClickable
     */
 
     public virtual void HandleInteraction() {}
-
+    public virtual void HighlightInteraction() {}
     public virtual void GotoNormal()
     {
         fsm.GotoState(InteractableStateType.Normal);

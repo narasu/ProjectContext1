@@ -18,6 +18,7 @@ public class InteractableFSM
         this.owner = owner;
 
         states = new Dictionary<InteractableStateType, InteractableState>();
+        Debug.Log(states);
     }
 
     public void AddState(InteractableStateType newType, InteractableState newState)
@@ -33,6 +34,7 @@ public class InteractableFSM
 
     public void GotoState(InteractableStateType key)
     {
+        
         if (!states.ContainsKey(key))
         {
             return;
