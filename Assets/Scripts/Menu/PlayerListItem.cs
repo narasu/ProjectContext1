@@ -1,18 +1,29 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
-public class PlayerListItem : MonoBehaviour
+public class PlayerListItem : MonoBehaviourPunCallbacks
 {
-    // Start is called before the first frame update
-    void Start()
+    public TMP_Text nicknameText;
+    Photon.Realtime.Player player;
+    public void Initialize(Photon.Realtime.Player player)
     {
-        
+        this.player = player;
+        nicknameText.text = player.NickName;
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void OnPlayerLeftRoom(Photon.Realtime.Player otherPlayer)
     {
-        
+        if (player == otherPlayer)
+        { 
+            Destroy(gameObject);
+        }
+    }
+
+    public override void OnLeftRoom()
+    {
+        Destroy(gameObject);
     }
 }
