@@ -5,16 +5,16 @@ using Photon.Pun;
 using TMPro;
 using Photon.Realtime;
 
-public class NetworkManager : MonoBehaviourPunCallbacks
+public class Launcher : MonoBehaviourPunCallbacks
 {
-    private static NetworkManager instance;
-    public static NetworkManager Instance
+    private static Launcher instance;
+    public static Launcher Instance
     {
         get
         {
             if (instance == null)
             {
-                instance = FindObjectOfType<NetworkManager>();
+                instance = FindObjectOfType<Launcher>();
             }
             return instance;
         }

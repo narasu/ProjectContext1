@@ -22,6 +22,6 @@ public class RoomListItem : MonoBehaviour
 
     public void JoinRoom()
     {
-        NetworkManager.Instance.JoinRoom(info);
+        Launcher.Instance.JoinRoom(info);
     }
 }
