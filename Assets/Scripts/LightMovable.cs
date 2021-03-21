@@ -24,7 +24,6 @@ public class LightMovable : Movable, IBuildingBlock
     public override void Drop()
     {
         base.Drop();
-        Debug.Log("drop");
         lightGizmo.SetActive(false);
     }
     protected override void Update()

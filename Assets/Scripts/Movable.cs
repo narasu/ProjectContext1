@@ -4,7 +4,9 @@ using UnityEngine;
 using UnityEngine.Events;
     public class Movable : Interactable
     {
-        [HideInInspector] public float resizeScaler;
+        [HideInInspector] public float resizeScalerX;
+        [HideInInspector] public float resizeScalerY;
+        [HideInInspector] public float resizeScalerZ;
         public Color Color = Color.red;
         public bool SetColorOnStart = false;
         protected HSVPicker.ColorPicker picker;
@@ -33,11 +35,15 @@ using UnityEngine.Events;
         {
             transform.SetParent(playerTransform.GetChild(1).transform);
             isGrabbed = true;
-
-            Vector3 heading = transform.position - hand.position;
-            hand.position += Vector3.Project(heading, Camera.main.transform.forward);
+            resetHandPos();
 
             startRotation = transform.localRotation;
+        }
+
+        public void resetHandPos()
+        {
+            Vector3 heading = transform.position - hand.position;
+            hand.position += Vector3.Project(heading, Camera.main.transform.forward);
         }
 
         protected override void Update()
@@ -52,7 +58,6 @@ using UnityEngine.Events;
         public virtual void Drop()
         {
             fsm.GotoState(InteractableStateType.Normal);
-            Debug.Log("drop2");
             transform.SetParent(null);
             isGrabbed = false;
         }

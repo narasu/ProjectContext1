@@ -38,10 +38,15 @@ public class PlayerTransformInHand : MonoBehaviour
         if (player.inHand!=null)
         {
             inHand = player.inHand.gameObject;
+            Movable inHandMovable = inHand.GetComponent<Movable>();
             // Vector3 moveAlongVector = (inHand.transform.position - head.transform.position) * Input.mouseScrollDelta.y * moveDampener;
             // inHand.transform.position += moveAlongVector;
+            float resizeScalerX = inHand.transform.localScale.x + inHandMovable.resizeScalerX * Input.mouseScrollDelta.y;
+            float resizeScalerY = inHand.transform.localScale.y + inHandMovable.resizeScalerY * Input.mouseScrollDelta.y;
+            float resizeScalerZ = inHand.transform.localScale.z + inHandMovable.resizeScalerZ * Input.mouseScrollDelta.y;
 
-            Vector3 resizeScale = inHand.transform.localScale + Vector3.one * Input.mouseScrollDelta.y * inHand.GetComponent<Movable>().resizeScaler;
+            Vector3 resizeScale = new Vector3(resizeScalerX, resizeScalerY, resizeScalerZ);
+
             inHand.transform.localScale = resizeScale;
 
             if(Input.GetKeyDown(KeyCode.R)){
@@ -131,19 +136,19 @@ public class PlayerTransformInHand : MonoBehaviour
                     break;
 
                 case KeyStates.resizeX:
-                    inHand.transform.localScale = new Vector3(0, 0, (Input.mousePosition.x - lastMousePos - Screen.width / 2) * scaleDampener) + startScale;
+                    inHand.transform.localScale = new Vector3(0, 0, (Input.mousePosition.x - lastMousePos - Screen.width / 2) * scaleDampener * (inHandMovable.resizeScalerZ * 10)) + startScale;
                     if(Input.GetMouseButtonDown(0)){
                         SwitchToSelection(KeyStates.resizeSelection);
                     }
                     break;
                 case KeyStates.resizeY:
-                    inHand.transform.localScale = new Vector3(0, (Input.mousePosition.x - lastMousePos - Screen.width / 2) * scaleDampener, 0) + startScale;
+                    inHand.transform.localScale = new Vector3(0, (Input.mousePosition.x - lastMousePos - Screen.width / 2) * scaleDampener * (inHandMovable.resizeScalerY * 10), 0) + startScale;
                     if(Input.GetMouseButtonDown(0)){
                         SwitchToSelection(KeyStates.resizeSelection);
                     }
                     break;
                 case KeyStates.resizeZ:
-                    inHand.transform.localScale = new Vector3((Input.mousePosition.x - lastMousePos - Screen.width / 2) * scaleDampener, 0, 0) + startScale;
+                    inHand.transform.localScale = new Vector3((Input.mousePosition.x - lastMousePos - Screen.width / 2) * scaleDampener * (inHandMovable.resizeScalerX * 10), 0, 0) + startScale;
                     if(Input.GetMouseButtonDown(0)){
                         SwitchToSelection(KeyStates.resizeSelection);
                     }

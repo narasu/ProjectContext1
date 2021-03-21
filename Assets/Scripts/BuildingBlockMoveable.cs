@@ -5,8 +5,8 @@ using UnityEngine.Events;
 
 public class BuildingBlockMoveable : Movable, IBuildingBlock
 {
-    [SerializeField] Color selectionOutline = new Color(255, 213, 143);
-    [SerializeField] Color grabOutline = new Color(194, 238, 102);
+    [SerializeField] Color selectionOutline = new Color32(255, 213, 143, 255);
+    [SerializeField] Color grabOutline = new Color32(194, 238, 102, 255);
     Rigidbody rb;
     Collider collider;
     Material material;
@@ -17,7 +17,14 @@ public class BuildingBlockMoveable : Movable, IBuildingBlock
         collider = GetComponent<Collider>();
         material = renderer.material;
 
-        resizeScaler = transform.localScale.x / 10;
+        resizeScalerX = transform.localScale.x / 10;
+        resizeScalerY = transform.localScale.y / 10;
+        resizeScalerZ = transform.localScale.z / 10;
+
+        if(SetColorOnStart)
+        {
+            renderer.material.color = Color;
+        }
     }
     public override void Grab()
     {
@@ -56,7 +63,7 @@ public class BuildingBlockMoveable : Movable, IBuildingBlock
             Color = color;
         });
 
-        material.color = picker.CurrentColor;
+        //material.color = picker.CurrentColor;
     }
     public override void DeactiveEditMaterial()
     {
