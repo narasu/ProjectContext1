@@ -11,7 +11,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/MichaelTestLab.unity
     guid: 24ca6c9fc00db6a4da9bb2c4fc7dc352
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/BotsOP scene.unity
     guid: 51a06ec3e5ea03d4d8847511230596e0
+  - enabled: 1
+    path: Assets/Scenes/Build/MainMenu.unity
+    guid: 1361772525f30b64c9ce6c983884e58a
   m_configObjects: {}

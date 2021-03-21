@@ -16,11 +16,12 @@ public class RoomListItem : MonoBehaviour
     {
         this.info = info;
         roomName.text = info.Name;
+        numPlayers.text = info.PlayerCount + " / " + info.MaxPlayers;
         joinButton.onClick.AddListener(JoinRoom);
     }
 
     public void JoinRoom()
     {
-
+        NetworkManager.Instance.JoinRoom(info);
     }
 }
