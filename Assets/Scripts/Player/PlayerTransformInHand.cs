@@ -45,7 +45,7 @@ public class PlayerTransformInHand : MonoBehaviour
             {
                 Vector3 moveAlongVector = (inHand.transform.position - head.transform.position) * Input.mouseScrollDelta.y * moveDampener;
                 inHand.transform.position += moveAlongVector;
-                inHandMovable.resetHandPos();
+                inHandMovable.ResetHandPosition();
             }
             else
             {

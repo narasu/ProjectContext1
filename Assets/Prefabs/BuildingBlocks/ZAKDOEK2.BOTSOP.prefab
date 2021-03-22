@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 5886445497304585494}
   - component: {fileID: 5886445497304584937}
   - component: {fileID: 5886445497304585492}
+  - component: {fileID: 6775138371854829521}
+  - component: {fileID: 357336954862553845}
   m_Layer: 6
   m_Name: ZAKDOEK2.BOTSOP
   m_TagString: Untagged
@@ -145,6 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ab89ceeb5b20094fa57f96b4b6325dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isTargeted: 0
   resizeScalerX: 0
   resizeScalerY: 0
   resizeScalerZ: 0
@@ -152,3 +155,41 @@ MonoBehaviour:
   SetColorOnStart: 0
   selectionOutline: {r: 1, g: 0.8352941, b: 0.56078434, a: 1}
   grabOutline: {r: 0.7607843, g: 0.93333334, b: 0.4, a: 1}
+--- !u!114 &6775138371854829521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6733359920554462834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
+--- !u!114 &357336954862553845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6733359920554462834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
+  m_UseLocal: 1

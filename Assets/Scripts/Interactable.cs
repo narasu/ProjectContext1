@@ -1,3 +1,4 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,7 @@ public class Interactable : MonoBehaviour, IClickable
 {
     protected InteractableFSM fsm;
     protected bool shouldHighlight;
+    public bool isTargeted;
 
     protected Renderer renderer;
     //[SerializeField] private GameObject light;
@@ -13,11 +15,12 @@ public class Interactable : MonoBehaviour, IClickable
     //Create FSM
     protected virtual void Awake()
     {
+        
         renderer = GetComponent<Renderer>();
         //startingMaterial = renderer.material;
 
+
         fsm = new InteractableFSM();
-        
     }
 
     protected virtual void Start()

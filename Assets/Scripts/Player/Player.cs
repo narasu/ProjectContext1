@@ -1,3 +1,4 @@
+using Photon.Pun;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -14,7 +15,9 @@ public class Player : MonoBehaviour
             return instance;
         }
     }
-    
+
+    PhotonView PV;
+    [SerializeField] private PlayerLook playerLook;
     /*    Interactions    */
     //Object the player is looking at
     private Interactable lookingAt;
@@ -32,11 +35,23 @@ public class Player : MonoBehaviour
     {
         //Initialize variables;
         instance = this;
-
+        PV = GetComponent<PhotonView>();
         playerTransformInHand = gameObject.GetComponent<PlayerTransformInHand>();
+    }
+    private void Start()
+    {
+        if (!PV.IsMine)
+        {
+            Destroy(GetComponentInChildren<Camera>().gameObject);
+        }
     }
     private void Update()
     {
+        if (!PV.IsMine)
+        {
+            return;
+        }
+        
         var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
         if(Physics.Raycast(ray, out hit))
@@ -62,11 +77,11 @@ public class Player : MonoBehaviour
             //     return;
             // }
             Debug.Log("drop3");
-            inHand.GetComponent<IBuildingBlock>().Drop();
+            inHand.GetComponent<IBuildingBlock>()?.Drop();
             ClearHand();
             return;
         }
-        lookingAt = PlayerLook.Instance.GetTarget();
+        lookingAt = playerLook.GetTarget();
         if (lookingAt == null)
         {
             return;
@@ -76,9 +91,10 @@ public class Player : MonoBehaviour
         inHand = lookingAt.GetComponent<Movable>();
         if (inHand != null)
         {
-            inHand.GetComponent<IBuildingBlock>().Grab();
+            inHand.GetComponent<IBuildingBlock>().Grab(this.transform);
         }
     }
 
     private void ClearHand() => inHand = null;
+    public bool IsLocalPlayer() => PV.IsMine;
 }

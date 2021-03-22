@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 7682220162556213724}
   - component: {fileID: -1179249048696551729}
   - component: {fileID: 3709403819968748424}
+  - component: {fileID: 1881018755316629836}
+  - component: {fileID: 5534782926542825416}
   m_Layer: 6
   m_Name: Sphere
   m_TagString: Untagged
@@ -110,6 +112,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a5b03ee241d74844ad8fd0f8182e2e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isTargeted: 0
+  resizeScalerX: 0
+  resizeScalerY: 0
+  resizeScalerZ: 0
+  Color: {r: 1, g: 0, b: 0, a: 1}
+  SetColorOnStart: 0
 --- !u!54 &-1179249048696551729
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -144,3 +152,41 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!114 &1881018755316629836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4077658110233326000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
+--- !u!114 &5534782926542825416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4077658110233326000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
+  m_UseLocal: 1

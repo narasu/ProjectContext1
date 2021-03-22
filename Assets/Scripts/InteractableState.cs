@@ -43,7 +43,7 @@ public class HighlightedState : InteractableState
     }
     public override void Update()
     {
-        if (PlayerLook.Instance.GetTarget()!=interactable)
+        if (!interactable.isTargeted)
         {
             interactable.GotoNormal();
         }

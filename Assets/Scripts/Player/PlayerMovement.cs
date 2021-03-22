@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -13,16 +14,26 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]private float levitationSpeed;
     [SerializeField]private float slowLevitationSpeed;
 
+    PhotonView PV;
+
     private void Start()
     {
         rigidbody = GetComponent<Rigidbody>();
-
+        PV = GetComponent<PhotonView>();
+        //if (!PV.IsMine)
+        //{
+        //    Destroy(rigidbody);
+        //}
         normalMovementSpeed = movementSpeed;
         normalLevitationSpeed = levitationSpeed;
     }
 
     void Update()
     {
+        if (!PV.IsMine)
+        {
+            return;
+        }
         if (Input.GetKey(KeyCode.Space))
         {
             //transform.Translate(Vector3.up * levitationSpeed * Time.deltaTime);

@@ -1,18 +1,15 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class PlayerLook : MonoBehaviour
 {
+    PhotonView PV;
+
     
-    private static PlayerLook instance;
-    public static PlayerLook Instance
-    {
-        get
-        {
-            return instance;
-        }
-    }
+
 #pragma warning disable 0649
     public Vector2 lookVector;
     [SerializeField] private Transform playerBody;
@@ -23,22 +20,34 @@ public class PlayerLook : MonoBehaviour
     [HideInInspector] public Camera camera;
     private float xAxisClamp;
 
+    [SerializeField] Player owner;
     private Interactable target;
     public Interactable lastTarget;
     private PlayerTransformInHand playerTransformInHand;
     private PlayerEditMaterial playerEditMaterial;
 
+    
+
     private void Awake()
     {
-        instance = this;
+        PV = GetComponent<PhotonView>();
+        if (!PV.IsMine)
+        {
+            return;
+        }
         camera = GetComponent<Camera>();
         playerTransformInHand = FindObjectOfType<PlayerTransformInHand>();
         playerEditMaterial = FindObjectOfType<PlayerEditMaterial>();
+        
         LockCursor();
     }
 
     private void Update()
     {
+        if (!PV.IsMine)
+        {
+            return;
+        }
         if(playerTransformInHand.keyState == PlayerTransformInHand.KeyStates.nothing && !playerEditMaterial.editMatActive)
             CameraRotation();
 
@@ -65,7 +74,7 @@ public class PlayerLook : MonoBehaviour
             {
                 if (interactable.isActiveAndEnabled)
                 {
-                    if (Player.Instance.inHand == null)
+                    if (owner.inHand == null)
                     {
                         interactable.Highlight();
                         SetTarget(interactable);
@@ -121,7 +130,16 @@ public class PlayerLook : MonoBehaviour
     //set target for the player to interact with
     private void SetTarget(Interactable i)
     {
+        if (target!=null)
+        {
+            target.isTargeted = false;
+        }
+        
         target = i;
+        if (i!=null)
+        {
+            i.isTargeted = true;
+        }
     }
 
     public Interactable GetTarget()

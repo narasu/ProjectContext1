@@ -2,6 +2,7 @@ using Photon.Pun;
 using UnityEngine.SceneManagement;
 using System.IO;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class RoomManager : MonoBehaviourPunCallbacks
 {
@@ -45,8 +46,9 @@ public class RoomManager : MonoBehaviourPunCallbacks
     {
         if (scene.buildIndex == 1)
         {
-            //instantiate player
             PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "PlayerManager"), Vector3.zero, Quaternion.identity);
+            PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs/BuildingBlocks", "EQUILATERALTRIANGLE.BOTSOP"), new Vector3(5.0f, 1.0f, 5.0f), Quaternion.identity);
         }
     }
+
 }

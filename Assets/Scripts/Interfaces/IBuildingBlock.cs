@@ -4,7 +4,7 @@ using UnityEngine;
 
 public interface IBuildingBlock
 {
-    void Grab();
+    void Grab(Transform player);
     void Drop();
     void ActiveEditMaterial();
     void DeactiveEditMaterial();

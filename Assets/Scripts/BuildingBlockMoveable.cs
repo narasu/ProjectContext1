@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using Photon.Pun;
 
 public class BuildingBlockMoveable : Movable, IBuildingBlock
 {
@@ -10,9 +11,14 @@ public class BuildingBlockMoveable : Movable, IBuildingBlock
     Rigidbody rb;
     Collider collider;
     Material material;
+
+    PhotonView PV;
+
     protected override void Awake()
     {
         base.Awake();
+        PV = GetComponent<PhotonView>();
+        
         rb = GetComponent<Rigidbody>();
         collider = GetComponent<Collider>();
         material = renderer.material;
@@ -25,10 +31,18 @@ public class BuildingBlockMoveable : Movable, IBuildingBlock
         {
             renderer.material.color = Color;
         }
+        //if (!PV.IsMine)
+        //{
+        //    Destroy(rb);
+        //}
     }
-    public override void Grab()
+    public override void Grab(Transform player)
     {
-        base.Grab();
+        //if (!PV.IsMine)
+        //{
+        //    return;
+        //}
+        base.Grab(player);
         rb.velocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
         rb.constraints = RigidbodyConstraints.FreezeAll;
@@ -39,6 +53,10 @@ public class BuildingBlockMoveable : Movable, IBuildingBlock
 
     public override void Drop()
     {
+        //if (!PV.IsMine)
+        //{
+        //    return;
+        //}
         base.Drop();
         collider.isTrigger = false;
         gameObject.GetComponent<Outline>().OutlineColor = selectionOutline;
@@ -55,6 +73,7 @@ public class BuildingBlockMoveable : Movable, IBuildingBlock
     UnityAction<Color> a;
     public override void ActiveEditMaterial()
     {
+
         picker = FindObjectOfType<HSVPicker.ColorPicker>();
         a = color => SetColor(color);
         picker.onValueChanged.AddListener(a);

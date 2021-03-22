@@ -16,9 +16,9 @@ public class LightMovable : Movable, IBuildingBlock
         slider = FindObjectOfType<HSVPicker.ColorPicker>().transform.parent.GetChild(1).GetComponent<Slider>();
         slider.gameObject.SetActive(false);
     }
-    public override void Grab()
+    public override void Grab(Transform player)
     {
-        base.Grab();
+        base.Grab(player);
         lightGizmo.SetActive(true);
     }
     public override void Drop()
