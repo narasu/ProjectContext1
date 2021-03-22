@@ -24,7 +24,7 @@ public class PlayerLook : MonoBehaviour
     private float xAxisClamp;
 
     private Interactable target;
-    private Interactable lastTarget;
+    public Interactable lastTarget;
     private PlayerTransformInHand playerTransformInHand;
     private PlayerEditMaterial playerEditMaterial;
 
@@ -61,12 +61,15 @@ public class PlayerLook : MonoBehaviour
                 return;
             }
 
-            if (interactable != null && lastTarget != interactable)
+            if (interactable != null/* && lastTarget != interactable*/)
             {
                 if (interactable.isActiveAndEnabled)
                 {
-                    interactable.Highlight();
-                    SetTarget(interactable);
+                    if (Player.Instance.inHand == null)
+                    {
+                        interactable.Highlight();
+                        SetTarget(interactable);
+                    }
                 }
 
             }
