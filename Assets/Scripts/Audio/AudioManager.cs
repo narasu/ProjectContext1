@@ -21,17 +21,12 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    void Start()
-    {
-        Play("Background");
-    }
-
     public void Play(string name)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
         if(s == null)
         {
-            Debug.LogWarning("YOOO KAN DE SOUND NIET VINDEN WAARSCHIJNLIJK HEB JE TYPE GEMAAKT CHECK DIE FF VOOR MIJ");
+            Debug.LogWarning("YOOO KAN DE SOUND " + name + " NIET VINDEN");
             return;
         }
         s.source.Play();

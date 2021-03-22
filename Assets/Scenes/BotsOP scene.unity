@@ -888,6 +888,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1385738643}
   - component: {fileID: 1385738642}
+  - component: {fileID: 1385738644}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -921,6 +922,31 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1385738644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1385738641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9c29de9fb3ef0a4ca3c6f21bd97ce12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Sound1
+    clip: {fileID: 8300000, guid: 9a6ff37ab53e84541ac771ec8bdcad54, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Sound2
+    clip: {fileID: 8300000, guid: 5cd73cb11fbab2046888301b22c16785, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
 --- !u!20 &1433321481 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 1105289707108219096, guid: 4483a92a5cacef5488c1c76339244251, type: 3}
