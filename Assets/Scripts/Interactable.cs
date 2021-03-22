@@ -62,7 +62,8 @@ public class Interactable : MonoBehaviour, IClickable
     */
 
     public virtual void HandleInteraction() {}
-    public virtual void HighlightInteraction() {}
+    public virtual void HighlightInteractionOn() {}
+    public virtual void HighlightInteractionOff() {}
     public virtual void GotoNormal()
     {
         fsm.GotoState(InteractableStateType.Normal);

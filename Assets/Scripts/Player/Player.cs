@@ -44,7 +44,6 @@ public class Player : MonoBehaviour
             if (Input.GetMouseButtonDown(0) && playerTransformInHand.keyState == PlayerTransformInHand.KeyStates.nothing && hit.transform.gameObject.GetComponent<IButton>() == null
                 && !FindObjectOfType<PlayerEditMaterial>().editMatActive) 
             {
-                Debug.Log("klik");
                 InteractWithObject();
             }
         }
@@ -62,7 +61,8 @@ public class Player : MonoBehaviour
             //     ClearHand();
             //     return;
             // }
-            inHand.Drop();
+            Debug.Log("drop3");
+            inHand.GetComponent<IBuildingBlock>().Drop();
             ClearHand();
             return;
         }
@@ -76,7 +76,7 @@ public class Player : MonoBehaviour
         inHand = lookingAt.GetComponent<Movable>();
         if (inHand != null)
         {
-            inHand.Grab();
+            inHand.GetComponent<IBuildingBlock>().Grab();
         }
     }
 

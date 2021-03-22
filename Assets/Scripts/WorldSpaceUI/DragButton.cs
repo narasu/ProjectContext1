@@ -20,7 +20,6 @@ public class DragButton : MonoBehaviour, IButton
         GameObject prefab = Instantiate(gameObjectToSpawnIn, Player.Instance.Hand.transform.position, Quaternion.identity);
         yield return new WaitForEndOfFrame();
         yield return new WaitForEndOfFrame();
-        Debug.Log(PlayerLook.Instance.GetTarget());
         FindObjectOfType<Player>().InteractWithObject();
     }
 }

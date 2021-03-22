@@ -4,10 +4,13 @@ using UnityEngine;
 using UnityEngine.Events;
     public class Movable : Interactable
     {
-        bool isGrabbed;
-        protected HSVPicker.ColorPicker picker;
+        [HideInInspector] public float resizeScalerX;
+        [HideInInspector] public float resizeScalerY;
+        [HideInInspector] public float resizeScalerZ;
         public Color Color = Color.red;
         public bool SetColorOnStart = false;
+        protected HSVPicker.ColorPicker picker;
+        bool isGrabbed;
         Transform playerTransform;
         Transform hand;
         Quaternion startRotation;
@@ -19,7 +22,6 @@ using UnityEngine.Events;
             base.Awake();
             playerTransform = FindObjectOfType<Player>().transform;
             transformInHand = FindObjectOfType<PlayerTransformInHand>();
-            picker = FindObjectOfType<HSVPicker.ColorPicker>();
             hand = GameObject.FindGameObjectWithTag("Hand").transform;
         }
 
@@ -33,11 +35,15 @@ using UnityEngine.Events;
         {
             transform.SetParent(playerTransform.GetChild(1).transform);
             isGrabbed = true;
-
-            Vector3 heading = transform.position - hand.position;
-            hand.position += Vector3.Project(heading, Camera.main.transform.forward);
+            resetHandPos();
 
             startRotation = transform.localRotation;
+        }
+
+        public void resetHandPos()
+        {
+            Vector3 heading = transform.position - hand.position;
+            hand.position += Vector3.Project(heading, Camera.main.transform.forward);
         }
 
         protected override void Update()
@@ -51,7 +57,6 @@ using UnityEngine.Events;
 
         public virtual void Drop()
         {
-            Debug.Log("drop");
             fsm.GotoState(InteractableStateType.Normal);
             transform.SetParent(null);
             isGrabbed = false;

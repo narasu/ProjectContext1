@@ -14,6 +14,7 @@ public class PlayerTransformInHand : MonoBehaviour
     Vector3 startScale;
     float lastMousePos;
     Player player;
+    GameObject inHand;
     void Start()
     {
         keyState = KeyStates.nothing;
@@ -36,17 +37,17 @@ public class PlayerTransformInHand : MonoBehaviour
     {
         if (player.inHand!=null)
         {
-            // Vector3 moveAlongVector = (player.inHand.gameObject.transform.position - head.transform.position) * Input.mouseScrollDelta.y * moveDampener;
-            // player.inHand.gameObject.transform.position += moveAlongVector;
+            inHand = player.inHand.gameObject;
+            Movable inHandMovable = inHand.GetComponent<Movable>();
+            // Vector3 moveAlongVector = (inHand.transform.position - head.transform.position) * Input.mouseScrollDelta.y * moveDampener;
+            // inHand.transform.position += moveAlongVector;
+            float resizeScalerX = inHand.transform.localScale.x + inHandMovable.resizeScalerX * Input.mouseScrollDelta.y;
+            float resizeScalerY = inHand.transform.localScale.y + inHandMovable.resizeScalerY * Input.mouseScrollDelta.y;
+            float resizeScalerZ = inHand.transform.localScale.z + inHandMovable.resizeScalerZ * Input.mouseScrollDelta.y;
 
-            Vector3 resizeScale = player.inHand.gameObject.transform.localScale + Vector3.one * Input.mouseScrollDelta.y * 0.1f;
+            Vector3 resizeScale = new Vector3(resizeScalerX, resizeScalerY, resizeScalerZ);
 
-            Vector3 newScale = new Vector3();
-            newScale.x = Mathf.Clamp(resizeScale.x, 0.1f, 50f);
-            newScale.y = Mathf.Clamp(resizeScale.y, 0.1f, 50f);
-            newScale.z = Mathf.Clamp(resizeScale.z, 0.1f, 50f);
-
-            player.inHand.gameObject.transform.localScale = newScale;
+            inHand.transform.localScale = resizeScale;
 
             if(Input.GetKeyDown(KeyCode.R)){
                 SwitchToSelection(KeyStates.rotateSelection);
@@ -59,11 +60,11 @@ public class PlayerTransformInHand : MonoBehaviour
             
 
             if(keyState != KeyStates.nothing || keyState != KeyStates.resizeSelection || keyState != KeyStates.rotateSelection){
-                if(gizmo.transform.position != player.inHand.gameObject.transform.position){
-                    gizmo.transform.position = player.inHand.gameObject.transform.position;
+                if(gizmo.transform.position != inHand.transform.position){
+                    gizmo.transform.position = inHand.transform.position;
                 }
-                // if(gizmo.transform.rotation != player.inHand.gameObject.transform.rotation){
-                //     gizmo.transform.rotation = player.inHand.gameObject.transform.rotation;
+                // if(gizmo.transform.rotation != inHand.transform.rotation){
+                //     gizmo.transform.rotation = inHand.transform.rotation;
                 // }
             }
 
@@ -116,38 +117,38 @@ public class PlayerTransformInHand : MonoBehaviour
             switch (keyState)
             {
                 case KeyStates.rotateX:
-                    player.inHand.gameObject.transform.localRotation = startRotation * Quaternion.Euler(0, 0, Input.mousePosition.x - lastMousePos - Screen.width / 2);
+                    inHand.transform.localRotation = startRotation * Quaternion.Euler(0, 0, Input.mousePosition.x - lastMousePos - Screen.width / 2);
                     if(Input.GetMouseButtonDown(0)){
                         SwitchToSelection(KeyStates.rotateSelection);
                     }
                     break;
                 case KeyStates.rotateY:
-                    player.inHand.gameObject.transform.localRotation = startRotation * Quaternion.Euler(0, Input.mousePosition.x - lastMousePos - Screen.width / 2, 0);
+                    inHand.transform.localRotation = startRotation * Quaternion.Euler(0, Input.mousePosition.x - lastMousePos - Screen.width / 2, 0);
                     if(Input.GetMouseButtonDown(0)){
                         SwitchToSelection(KeyStates.rotateSelection);
                     }
                     break;
                 case KeyStates.rotateZ:
-                    player.inHand.gameObject.transform.localRotation = startRotation * Quaternion.Euler(Input.mousePosition.x - lastMousePos - Screen.width / 2, 0, 0);
+                    inHand.transform.localRotation = startRotation * Quaternion.Euler(Input.mousePosition.x - lastMousePos - Screen.width / 2, 0, 0);
                     if(Input.GetMouseButtonDown(0)){
                         SwitchToSelection(KeyStates.rotateSelection);
                     }
                     break;
 
                 case KeyStates.resizeX:
-                    player.inHand.gameObject.transform.localScale = new Vector3(0, 0, (Input.mousePosition.x - lastMousePos - Screen.width / 2) * scaleDampener) + startScale;
+                    inHand.transform.localScale = new Vector3(0, 0, (Input.mousePosition.x - lastMousePos - Screen.width / 2) * scaleDampener * (inHandMovable.resizeScalerZ * 10)) + startScale;
                     if(Input.GetMouseButtonDown(0)){
                         SwitchToSelection(KeyStates.resizeSelection);
                     }
                     break;
                 case KeyStates.resizeY:
-                    player.inHand.gameObject.transform.localScale = new Vector3(0, (Input.mousePosition.x - lastMousePos - Screen.width / 2) * scaleDampener, 0) + startScale;
+                    inHand.transform.localScale = new Vector3(0, (Input.mousePosition.x - lastMousePos - Screen.width / 2) * scaleDampener * (inHandMovable.resizeScalerY * 10), 0) + startScale;
                     if(Input.GetMouseButtonDown(0)){
                         SwitchToSelection(KeyStates.resizeSelection);
                     }
                     break;
                 case KeyStates.resizeZ:
-                    player.inHand.gameObject.transform.localScale = new Vector3((Input.mousePosition.x - lastMousePos - Screen.width / 2) * scaleDampener, 0, 0) + startScale;
+                    inHand.transform.localScale = new Vector3((Input.mousePosition.x - lastMousePos - Screen.width / 2) * scaleDampener * (inHandMovable.resizeScalerX * 10), 0, 0) + startScale;
                     if(Input.GetMouseButtonDown(0)){
                         SwitchToSelection(KeyStates.resizeSelection);
                     }
@@ -158,10 +159,10 @@ public class PlayerTransformInHand : MonoBehaviour
 
     private void SwitchToKey(KeyStates keyStateToSwitchTo)
     {
-        startRotation = player.inHand.gameObject.transform.localRotation;
-        startScale = player.inHand.gameObject.transform.localScale;
+        startRotation = inHand.transform.localRotation;
+        startScale = inHand.transform.localScale;
         lastMousePos = Input.mousePosition.x - (Screen.width / 2);
-        gizmo.transform.rotation = player.inHand.gameObject.transform.rotation;
+        gizmo.transform.rotation = inHand.transform.rotation;
 
         keyState = keyStateToSwitchTo;
         Cursor.lockState = CursorLockMode.None;
@@ -194,7 +195,7 @@ public class PlayerTransformInHand : MonoBehaviour
     {
         keyState = keyStateToSwitchTo;
         Cursor.lockState = CursorLockMode.Locked;
-        gizmo.transform.rotation = player.inHand.gameObject.transform.rotation;
+        gizmo.transform.rotation = inHand.transform.rotation;
         gizmo.SetActive(true);
         for (int i = 0; i < 3; i++)
         {

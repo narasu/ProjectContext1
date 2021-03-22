@@ -39,7 +39,7 @@ public class HighlightedState : InteractableState
 {
     public override void Enter()
     {
-        interactable.HighlightInteraction();
+        interactable.HighlightInteractionOn();
     }
     public override void Update()
     {
@@ -50,7 +50,7 @@ public class HighlightedState : InteractableState
     }
     public override void Exit()
     {
-        interactable.HighlightInteraction();
+        interactable.HighlightInteractionOff();
     }
 }
 public class InteractingState : InteractableState
