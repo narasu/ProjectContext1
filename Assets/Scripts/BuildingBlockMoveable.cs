@@ -53,20 +53,29 @@ public class BuildingBlockMoveable : Movable, IBuildingBlock
     {
         gameObject.GetComponent<Outline>().enabled = false;
     }
-
+    UnityAction<Color> a;
     public override void ActiveEditMaterial()
     {
         picker = FindObjectOfType<HSVPicker.ColorPicker>();
-        picker.onValueChanged.AddListener(color =>
-        {
-            material.color = color;
-            Color = color;
-        });
+        //picker.onValueChanged.AddListener(color =>
+        //{
+        //    material.color = color;
+        //    Color = color;
+        //});
+        a = color => SetColor(color);
+        picker.onValueChanged.AddListener(a);
+        
 
         //material.color = picker.CurrentColor;
     }
     public override void DeactiveEditMaterial()
     {
-        picker.onValueChanged.RemoveAllListeners();
+        picker.onValueChanged.RemoveListener(a);
+    }
+
+    public void SetColor(Color color)
+    {
+        material.color = color;
+        Color = color;
     }
 }

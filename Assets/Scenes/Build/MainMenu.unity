@@ -1732,6 +1732,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 505053496629574860, guid: cae5720989b4d734f9aff92a328df1c8, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 505053496629574860, guid: cae5720989b4d734f9aff92a328df1c8, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 505053496629574860, guid: cae5720989b4d734f9aff92a328df1c8, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 505053496629574860, guid: cae5720989b4d734f9aff92a328df1c8, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 505053496629574860, guid: cae5720989b4d734f9aff92a328df1c8, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 384.67993
+      objectReference: {fileID: 0}
+    - target: {fileID: 505053496629574860, guid: cae5720989b4d734f9aff92a328df1c8, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 505053496629574860, guid: cae5720989b4d734f9aff92a328df1c8, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1711561166279642224, guid: cae5720989b4d734f9aff92a328df1c8, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1800,7 +1828,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8344036768491155887, guid: cae5720989b4d734f9aff92a328df1c8, type: 3}
+    - target: {fileID: 4333503288478574328, guid: cae5720989b4d734f9aff92a328df1c8, type: 3}
+      propertyPath: m_ChildForceExpandHeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8344036768087577324, guid: cae5720989b4d734f9aff92a328df1c8, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -1826,16 +1858,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8384060279152697485, guid: cae5720989b4d734f9aff92a328df1c8, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8578693226520619478, guid: cae5720989b4d734f9aff92a328df1c8, type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8578693227040796857, guid: cae5720989b4d734f9aff92a328df1c8, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8578693227169110400, guid: cae5720989b4d734f9aff92a328df1c8, type: 3}
+      propertyPath: playerListContent
+      value: 
+      objectReference: {fileID: 1066482781}
+    - target: {fileID: 8578693227169110400, guid: cae5720989b4d734f9aff92a328df1c8, type: 3}
+      propertyPath: playerListItemPrefab
+      value: 
+      objectReference: {fileID: 6555103877939165307, guid: 4984e6b8092d41946a04ac494f063d83, type: 3}
     - target: {fileID: 8578693227169110403, guid: cae5720989b4d734f9aff92a328df1c8, type: 3}
       propertyPath: m_Name
       value: MenuCanvas (1)
@@ -1926,6 +1962,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cae5720989b4d734f9aff92a328df1c8, type: 3}
+--- !u!224 &1066482781 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 505053496629574860, guid: cae5720989b4d734f9aff92a328df1c8, type: 3}
+  m_PrefabInstance: {fileID: 1066482780}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1146895148
 GameObject:
   m_ObjectHideFlags: 0
@@ -4548,7 +4589,9 @@ MonoBehaviour:
   roomNameText: {fileID: 2002894701}
   errorText: {fileID: 1469196977}
   roomListContent: {fileID: 1854068372}
+  playerListContent: {fileID: 0}
   roomListItemPrefab: {fileID: 8705985711258416664, guid: 8b41c458c0e12b24cb5e636adca30168, type: 3}
+  playerListItemPrefab: {fileID: 0}
 --- !u!223 &344064895049118196
 Canvas:
   m_ObjectHideFlags: 0
