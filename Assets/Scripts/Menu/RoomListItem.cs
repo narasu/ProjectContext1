@@ -11,7 +11,7 @@ public class RoomListItem : MonoBehaviour
     public TMP_Text numPlayers;
     public Button joinButton;
 
-    RoomInfo info;
+    public RoomInfo info;
     public void Initialize(RoomInfo info)
     {
         this.info = info;

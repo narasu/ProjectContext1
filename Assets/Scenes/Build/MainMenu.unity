@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &26397049 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 337755341414591994, guid: cae5720989b4d734f9aff92a328df1c8, type: 3}
+  m_PrefabInstance: {fileID: 1066482780}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &57547649
 GameObject:
   m_ObjectHideFlags: 0
@@ -442,6 +447,72 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 177265855}
   m_CullTransparentMesh: 1
+--- !u!1 &255726321
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 255726324}
+  - component: {fileID: 255726323}
+  - component: {fileID: 255726322}
+  m_Layer: 0
+  m_Name: RoomManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &255726322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 255726321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 999
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
+--- !u!114 &255726323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 255726321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea4efa0d5eef0f74d94c2d98a8a5fbbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &255726324
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 255726321}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &448027854
 GameObject:
   m_ObjectHideFlags: 0
@@ -1828,6 +1899,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3525458220141238616, guid: cae5720989b4d734f9aff92a328df1c8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: StartGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 3525458220141238616, guid: cae5720989b4d734f9aff92a328df1c8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Launcher, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 4333503288478574328, guid: cae5720989b4d734f9aff92a328df1c8, type: 3}
       propertyPath: m_ChildForceExpandHeight
       value: 0
@@ -1864,6 +1943,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8578693227169110400, guid: cae5720989b4d734f9aff92a328df1c8, type: 3}
+      propertyPath: startGameButton
+      value: 
+      objectReference: {fileID: 26397049}
     - target: {fileID: 8578693227169110400, guid: cae5720989b4d734f9aff92a328df1c8, type: 3}
       propertyPath: playerListContent
       value: 
@@ -4592,6 +4675,7 @@ MonoBehaviour:
   playerListContent: {fileID: 0}
   roomListItemPrefab: {fileID: 8705985711258416664, guid: 8b41c458c0e12b24cb5e636adca30168, type: 3}
   playerListItemPrefab: {fileID: 0}
+  startGameButton: {fileID: 0}
 --- !u!223 &344064895049118196
 Canvas:
   m_ObjectHideFlags: 0
