@@ -164,8 +164,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 8
   slowMovementSpeed: 1
-  levitationSpeed: 4
-  slowLevitationSpeed: 1
+  levitationSpeed: 2000
+  slowLevitationSpeed: 500
 --- !u!114 &4254211705319224275
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -396,6 +396,7 @@ MonoBehaviour:
   raycastDistance: 10
   mouseSensitivity: 6.6
   camera: {fileID: 0}
+  lastTarget: {fileID: 0}
 --- !u!1 &4668729841955192362
 GameObject:
   m_ObjectHideFlags: 0

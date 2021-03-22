@@ -41,7 +41,6 @@ public class BuildingBlockMoveable : Movable, IBuildingBlock
     {
         base.Drop();
         collider.isTrigger = false;
-        gameObject.GetComponent<Outline>().enabled = false;
         gameObject.GetComponent<Outline>().OutlineColor = selectionOutline;
     }
 
@@ -57,14 +56,8 @@ public class BuildingBlockMoveable : Movable, IBuildingBlock
     public override void ActiveEditMaterial()
     {
         picker = FindObjectOfType<HSVPicker.ColorPicker>();
-        //picker.onValueChanged.AddListener(color =>
-        //{
-        //    material.color = color;
-        //    Color = color;
-        //});
         a = color => SetColor(color);
         picker.onValueChanged.AddListener(a);
-        
 
         //material.color = picker.CurrentColor;
     }
