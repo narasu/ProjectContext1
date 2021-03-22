@@ -39,15 +39,24 @@ public class PlayerTransformInHand : MonoBehaviour
         {
             inHand = player.inHand.gameObject;
             Movable inHandMovable = inHand.GetComponent<Movable>();
-            // Vector3 moveAlongVector = (inHand.transform.position - head.transform.position) * Input.mouseScrollDelta.y * moveDampener;
-            // inHand.transform.position += moveAlongVector;
-            float resizeScalerX = inHand.transform.localScale.x + inHandMovable.resizeScalerX * Input.mouseScrollDelta.y;
-            float resizeScalerY = inHand.transform.localScale.y + inHandMovable.resizeScalerY * Input.mouseScrollDelta.y;
-            float resizeScalerZ = inHand.transform.localScale.z + inHandMovable.resizeScalerZ * Input.mouseScrollDelta.y;
+            
 
-            Vector3 resizeScale = new Vector3(resizeScalerX, resizeScalerY, resizeScalerZ);
+            if(Input.GetKey(KeyCode.LeftShift))
+            {
+                Vector3 moveAlongVector = (inHand.transform.position - head.transform.position) * Input.mouseScrollDelta.y * moveDampener;
+                inHand.transform.position += moveAlongVector;
+                inHandMovable.resetHandPos();
+            }
+            else
+            {
+                float resizeScalerX = inHand.transform.localScale.x + inHandMovable.resizeScalerX * Input.mouseScrollDelta.y;
+                float resizeScalerY = inHand.transform.localScale.y + inHandMovable.resizeScalerY * Input.mouseScrollDelta.y;
+                float resizeScalerZ = inHand.transform.localScale.z + inHandMovable.resizeScalerZ * Input.mouseScrollDelta.y;
 
-            inHand.transform.localScale = resizeScale;
+                Vector3 resizeScale = new Vector3(resizeScalerX, resizeScalerY, resizeScalerZ);
+
+                inHand.transform.localScale = resizeScale;
+            }
 
             if(Input.GetKeyDown(KeyCode.R)){
                 SwitchToSelection(KeyStates.rotateSelection);
