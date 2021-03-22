@@ -61,7 +61,6 @@ public class Player : MonoBehaviour
             //     ClearHand();
             //     return;
             // }
-            Debug.Log("drop3");
             inHand.GetComponent<IBuildingBlock>().Drop();
             ClearHand();
             return;

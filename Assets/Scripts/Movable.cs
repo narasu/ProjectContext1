@@ -36,6 +36,7 @@ using UnityEngine.Events;
             transform.SetParent(playerTransform.GetChild(1).transform);
             isGrabbed = true;
             resetHandPos();
+            FindObjectOfType<AudioManager>().Play("Sound2");
 
             startRotation = transform.localRotation;
         }
@@ -60,6 +61,7 @@ using UnityEngine.Events;
             fsm.GotoState(InteractableStateType.Normal);
             transform.SetParent(null);
             isGrabbed = false;
+            FindObjectOfType<AudioManager>().Play("Sound1");
         }
         public virtual void ActiveEditMaterial() {}
         public virtual void DeactiveEditMaterial() {}
