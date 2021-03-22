@@ -25,12 +25,17 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Space))
         {
-            transform.Translate(Vector3.up * levitationSpeed * Time.deltaTime);
+            //transform.Translate(Vector3.up * levitationSpeed * Time.deltaTime);
+            rigidbody.velocity = Vector3.up * levitationSpeed * Time.deltaTime;
         }
-
-        if (Input.GetKey(KeyCode.LeftControl))
+        else if (Input.GetKey(KeyCode.LeftControl))
         {
-            transform.Translate(Vector3.down * levitationSpeed * Time.deltaTime);
+            //transform.Translate(Vector3.down * levitationSpeed * Time.deltaTime);
+            rigidbody.velocity = Vector3.down * levitationSpeed * Time.deltaTime;
+        }
+        else
+        {
+            rigidbody.velocity = new Vector3(1, 0, 1);
         }
 
         if(Input.GetKey(KeyCode.LeftShift))
@@ -53,7 +58,8 @@ public class PlayerMovement : MonoBehaviour
         Vector3 forwardMovement = transform.forward * walkVector.y;
         Vector3 rightMovement = transform.right * walkVector.x;
         Vector3 movement = Vector3.Normalize(forwardMovement + rightMovement) * movementSpeed;
+        Vector3 newMovement = new Vector3(movement.x, rigidbody.velocity.y, movement.z);
 
-        rigidbody.velocity = movement;
+        rigidbody.velocity = newMovement;
     }
 }

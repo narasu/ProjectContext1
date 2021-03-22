@@ -10,7 +10,6 @@ public class PlayerEditMaterial : MonoBehaviour
     void Update()
     {
         lookingAt = PlayerLook.Instance.GetTarget();
-        Debug.Log(lookingAt + "  " + !editMatActive);
         if(lookingAt != null && !editMatActive || Player.Instance.inHand != null && !editMatActive)
         {
             ActiveEditMat();
