@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4839405854399676285}
   - component: {fileID: 4839405854399676280}
   - component: {fileID: 1897599792796789243}
-  - component: {fileID: -1299861915334528615}
+  - component: {fileID: -4477193659943079376}
   m_Layer: 6
   m_Name: jewel
   m_TagString: Untagged
@@ -177,7 +177,7 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &-1299861915334528615
+--- !u!114 &-4477193659943079376
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -186,10 +186,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 5757971051310121105}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Script: {fileID: 11500000, guid: ede284b8f493ac94495bf636a4f61920, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SynchronizePosition: 1
-  m_SynchronizeRotation: 1
-  m_SynchronizeScale: 0
-  m_UseLocal: 1

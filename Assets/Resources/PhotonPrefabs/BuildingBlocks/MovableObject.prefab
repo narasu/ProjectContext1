@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6450279435279453903}
   - component: {fileID: 314935847}
   - component: {fileID: 9027884594615169787}
-  - component: {fileID: 8732796621897543676}
+  - component: {fileID: 9004524984076709517}
   m_Layer: 6
   m_Name: MovableObject
   m_TagString: Untagged
@@ -177,7 +177,7 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &8732796621897543676
+--- !u!114 &9004524984076709517
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -186,13 +186,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 4977790695150609319}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Script: {fileID: 11500000, guid: ede284b8f493ac94495bf636a4f61920, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SynchronizePosition: 1
-  m_SynchronizeRotation: 1
-  m_SynchronizeScale: 0
-  m_UseLocal: 1
 --- !u!1001 &932328437
 PrefabInstance:
   m_ObjectHideFlags: 0

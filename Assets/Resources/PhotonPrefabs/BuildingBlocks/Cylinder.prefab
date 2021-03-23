@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8852899724249085625}
   - component: {fileID: 1294310431463091795}
   - component: {fileID: -2525462913575789092}
-  - component: {fileID: 9066515711335159310}
+  - component: {fileID: -6123676635062602405}
   m_Layer: 6
   m_Name: Cylinder
   m_TagString: Untagged
@@ -176,7 +176,7 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &9066515711335159310
+--- !u!114 &-6123676635062602405
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -185,10 +185,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 707534135787269763}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Script: {fileID: 11500000, guid: ede284b8f493ac94495bf636a4f61920, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SynchronizePosition: 1
-  m_SynchronizeRotation: 1
-  m_SynchronizeScale: 0
-  m_UseLocal: 1

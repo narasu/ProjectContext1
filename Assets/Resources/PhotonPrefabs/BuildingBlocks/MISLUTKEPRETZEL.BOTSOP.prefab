@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 3925555184233964019}
   - component: {fileID: 3925555184233964022}
   - component: {fileID: -2773414149018739288}
-  - component: {fileID: 6521216244304546996}
+  - component: {fileID: -3521609903685397794}
   m_Layer: 6
   m_Name: MISLUTKEPRETZEL.BOTSOP
   m_TagString: Untagged
@@ -173,11 +173,12 @@ MonoBehaviour:
   Synchronization: 3
   OwnershipTransfer: 0
   observableSearch: 2
-  ObservedComponents: []
+  ObservedComponents:
+  - {fileID: 0}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &6521216244304546996
+--- !u!114 &-3521609903685397794
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -186,10 +187,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 4232036154584577300}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Script: {fileID: 11500000, guid: ede284b8f493ac94495bf636a4f61920, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SynchronizePosition: 1
-  m_SynchronizeRotation: 1
-  m_SynchronizeScale: 0
-  m_UseLocal: 1

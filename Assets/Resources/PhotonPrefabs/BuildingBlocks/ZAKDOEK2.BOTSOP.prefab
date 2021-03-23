@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5886445497304584937}
   - component: {fileID: 5886445497304585492}
   - component: {fileID: 6775138371854829521}
-  - component: {fileID: 292125281243440915}
+  - component: {fileID: 6165500346507382350}
   m_Layer: 6
   m_Name: ZAKDOEK2.BOTSOP
   m_TagString: Untagged
@@ -177,7 +177,7 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &292125281243440915
+--- !u!114 &6165500346507382350
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -186,10 +186,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 6733359920554462834}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Script: {fileID: 11500000, guid: ede284b8f493ac94495bf636a4f61920, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SynchronizePosition: 1
-  m_SynchronizeRotation: 1
-  m_SynchronizeScale: 0
-  m_UseLocal: 1

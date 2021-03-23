@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 764145710673539200}
   - component: {fileID: 764145710673539201}
   - component: {fileID: -7310506694030445818}
-  - component: {fileID: 2900143535804851217}
+  - component: {fileID: -8730168974581850623}
   m_Layer: 6
   m_Name: blad1
   m_TagString: Untagged
@@ -174,11 +174,11 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents:
-  - {fileID: 2900143535804851217}
+  - {fileID: 0}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &2900143535804851217
+--- !u!114 &-8730168974581850623
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -187,10 +187,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 764145710673539205}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Script: {fileID: 11500000, guid: ede284b8f493ac94495bf636a4f61920, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SynchronizePosition: 1
-  m_SynchronizeRotation: 1
-  m_SynchronizeScale: 0
-  m_UseLocal: 1

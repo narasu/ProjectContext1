@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7121398870639046968}
   - component: {fileID: 7121398870639046973}
   - component: {fileID: 6216869882058557736}
-  - component: {fileID: 8036931883114382420}
+  - component: {fileID: -7901786113316857175}
   m_Layer: 6
   m_Name: CURL2.BOTSOP
   m_TagString: Untagged
@@ -177,7 +177,7 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &8036931883114382420
+--- !u!114 &-7901786113316857175
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -186,10 +186,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 7932285194202068819}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Script: {fileID: 11500000, guid: ede284b8f493ac94495bf636a4f61920, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SynchronizePosition: 1
-  m_SynchronizeRotation: 1
-  m_SynchronizeScale: 0
-  m_UseLocal: 1
