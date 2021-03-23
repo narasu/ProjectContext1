@@ -1,8 +1,8 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-using Photon.Pun;
 public class Movable : Interactable
 {
     [HideInInspector] public float resizeScalerX;
@@ -18,17 +18,13 @@ public class Movable : Interactable
     PlayerTransformInHand transformInHand;
     PlayerEditMaterial playerEditMaterial;
 
-    
 
     protected override void Awake()
     {
-        GameObject localPlayer = PhotonNetwork.LocalPlayer.TagObject as GameObject;
         base.Awake();
-        Debug.Log(localPlayer);
         //playerTransform = FindObjectOfType<Player>().transform;
         //transformInHand = FindObjectOfType<PlayerTransformInHand>();
         //hand = GameObject.FindGameObjectWithTag("Hand").transform;
-        
     }
 
     //called from InteractingState.Update()
@@ -39,6 +35,16 @@ public class Movable : Interactable
 
     public virtual void Grab(Transform player)
     {
+        Debug.Log("PV" + PV.IsMine);
+        Debug.Log("PlayerPV" + player.GetComponent<Player>().PV.IsMine);
+        if (!PV.IsMine && player.GetComponent<Player>().PV.IsMine)
+        {
+            PV.TransferOwnership(PhotonNetwork.LocalPlayer);
+        }
+        //if (player.GetComponent<Player>().PV.IsMine)
+        //{
+        //    PV.TransferOwnership(PhotonNetwork.LocalPlayer);
+        //}
         playerTransform = player;
         transform.SetParent(player.GetChild(1).transform);
         isGrabbed = true;

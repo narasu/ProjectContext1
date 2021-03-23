@@ -6,12 +6,15 @@ public class RigidbodySync : MonoBehaviourPun, IPunObservable
 
     Rigidbody r;
 
+    Transform parent;
     Vector3 latestPos;
     Quaternion latestRot;
     Vector3 latestScale;
     Vector3 velocity;
     Vector3 angularVelocity;
     Collider collider;
+    RigidbodyConstraints latestConstraints;
+    bool isTrigger;
 
     bool valuesReceived = false;
 
@@ -28,6 +31,7 @@ public class RigidbodySync : MonoBehaviourPun, IPunObservable
         if (stream.IsWriting)
         {
             //We own this player: send the others our data
+            //stream.SendNext(transform.parent);
             stream.SendNext(transform.position);
             stream.SendNext(transform.rotation);
             stream.SendNext(transform.localScale);
@@ -39,13 +43,14 @@ public class RigidbodySync : MonoBehaviourPun, IPunObservable
         else
         {
             //Network player, receive data
+            //parent = (Transform)stream.ReceiveNext();
             latestPos = (Vector3)stream.ReceiveNext();
             latestRot = (Quaternion)stream.ReceiveNext();
             latestScale = (Vector3)stream.ReceiveNext();
-            r.constraints = (RigidbodyConstraints)stream.ReceiveNext();
+            latestConstraints = (RigidbodyConstraints)stream.ReceiveNext();
             velocity = (Vector3)stream.ReceiveNext();
             angularVelocity = (Vector3)stream.ReceiveNext();
-            collider.isTrigger = (bool)stream.ReceiveNext();
+            isTrigger = (bool)stream.ReceiveNext();
 
             valuesReceived = true;
         }
@@ -57,11 +62,15 @@ public class RigidbodySync : MonoBehaviourPun, IPunObservable
         if (!photonView.IsMine && valuesReceived)
         {
             //Update Object position and Rigidbody parameters
+            //transform.parent = parent;
             transform.position = Vector3.Lerp(transform.position, latestPos, Time.deltaTime * 5);
             transform.rotation = Quaternion.Lerp(transform.rotation, latestRot, Time.deltaTime * 5);
             transform.localScale = Vector3.Lerp(transform.localScale, latestScale, Time.deltaTime * 5);
             r.velocity = velocity;
             r.angularVelocity = angularVelocity;
+            r.constraints = latestConstraints;
+            collider.isTrigger = isTrigger;
+
         }
     }
 

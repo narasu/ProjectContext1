@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class QuitButton : MonoBehaviour, IButton
 {
-    public void Interact()
+    public GameObject canvas;
+    public void Interact(Transform player)
     {
-        GameObject.FindGameObjectWithTag("Inventory").SetActive(false);
+        canvas.SetActive(false);
     }
 }

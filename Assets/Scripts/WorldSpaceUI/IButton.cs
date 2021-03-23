@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IButton
 {
-    void Interact();
+    void Interact(Transform player);
 }

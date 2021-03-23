@@ -10,6 +10,7 @@ public class Interactable : MonoBehaviour, IClickable
     public bool isTargeted;
 
     protected Renderer renderer;
+    protected PhotonView PV;
     //[SerializeField] private GameObject light;
 
     //Create FSM
@@ -21,6 +22,7 @@ public class Interactable : MonoBehaviour, IClickable
 
 
         fsm = new InteractableFSM();
+        PV = GetComponent<PhotonView>();
     }
 
     protected virtual void Start()

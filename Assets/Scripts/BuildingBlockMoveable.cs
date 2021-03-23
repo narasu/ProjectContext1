@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-using Photon.Pun;
 
 public class BuildingBlockMoveable : Movable, IBuildingBlock
 {
@@ -12,13 +11,10 @@ public class BuildingBlockMoveable : Movable, IBuildingBlock
     Collider collider;
     Material material;
 
-    PhotonView PV;
 
     protected override void Awake()
     {
         base.Awake();
-        PV = GetComponent<PhotonView>();
-        
         rb = GetComponent<Rigidbody>();
         collider = GetComponent<Collider>(); 
         material = renderer.material;
@@ -46,10 +42,10 @@ public class BuildingBlockMoveable : Movable, IBuildingBlock
         rb.velocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
         rb.constraints = RigidbodyConstraints.FreezeAll;
-        if (PhotonNetwork.IsMasterClient)
-        {
+        //if (PhotonNetwork.IsMasterClient)
+        //{
             
-        }
+        //}
     }
 
     public override void Drop()

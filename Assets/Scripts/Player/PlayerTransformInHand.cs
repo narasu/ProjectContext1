@@ -7,7 +7,8 @@ public class PlayerTransformInHand : MonoBehaviour
     public enum KeyStates {nothing, rotateSelection, resizeSelection, rotateX, rotateY, rotateZ, resizeX, resizeY, resizeZ};
     public KeyStates keyState;
     [SerializeField] GameObject head;
-    [SerializeField] GameObject gizmo;
+    [SerializeField] GameObject gizmoPrefab;
+    GameObject gizmo;
     [SerializeField] float scaleDampener;
     [SerializeField] float moveDampener = 0.05f;
     Quaternion startRotation;
@@ -19,6 +20,7 @@ public class PlayerTransformInHand : MonoBehaviour
     {
         keyState = KeyStates.nothing;
         player = gameObject.GetComponent<Player>();
+        gizmo = Instantiate(gizmoPrefab, transform);
     }
     void LateUpdate()
     {

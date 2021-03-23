@@ -27,7 +27,6 @@ public class PlayerManager : MonoBehaviour
         Debug.Log("instantiated playercontroller");
         GameObject o = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "Player"), Vector3.zero, Quaternion.identity);
         PhotonNetwork.LocalPlayer.TagObject = o;
-        Debug.Log(PhotonNetwork.LocalPlayer.TagObject);
         PhotonNetwork.GetPhotonView(PV.ViewID).Owner.TagObject = o;
     }
 

@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    PhotonView PV;
+    [HideInInspector] public PhotonView PV;
     [SerializeField] private PlayerLook playerLook;
     /*    Interactions    */
     //Object the player is looking at

@@ -4,23 +4,23 @@ using UnityEngine;
 
 public class NextButton : MonoBehaviour, IButton
 {
-    PlayerInventory pi;
+    public WorldspaceCanvas inventory;
     void Start()
     {
-        pi = FindObjectOfType<PlayerInventory>().GetComponent<PlayerInventory>();
+        //pi = FindObjectOfType<PlayerInventory>().GetComponent<PlayerInventory>();
     }
-    public void Interact()
+    public void Interact(Transform player)
     {
-        pi.inventoryPages[pi.currentPageIndex].SetActive(false);
+        inventory.inventoryPages[inventory.currentPageIndex].SetActive(false);
         //Debug.Log(pi.currentPageIndex + "  " + pi.inventoryPages.Length);
-        if(pi.currentPageIndex == pi.inventoryPages.Length - 1)
+        if(inventory.currentPageIndex == inventory.inventoryPages.Length - 1)
         {
-            pi.currentPageIndex = 0;
+            inventory.currentPageIndex = 0;
         }
         else
         {
-            pi.currentPageIndex++;
+            inventory.currentPageIndex++;
         }
-        pi.inventoryPages[pi.currentPageIndex].SetActive(true);
+        inventory.inventoryPages[inventory.currentPageIndex].SetActive(true);
     }
 }

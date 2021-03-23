@@ -1,14 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
+using System.IO;
 
 public class DragButton : MonoBehaviour, IButton
 {
-    [SerializeField] GameObject gameObjectToSpawnIn;
+    [SerializeField] string gameObjectToSpawnIn;
     bool hasClicked;
-    public void Interact()
+    Player player;
+    public void Interact(Transform player)
     {
-        if(Player.Instance.inHand == null)
+        this.player = player.GetComponent<Player>();
+        if(this.player.inHand == null)
         {
             StartCoroutine(InteractWithDelay());
         }
@@ -17,9 +21,9 @@ public class DragButton : MonoBehaviour, IButton
     IEnumerator InteractWithDelay()
     {
         //Transform headTrans = FindObjectOfType<Player>().transform.GetChild(1).transform;
-        GameObject prefab = Instantiate(gameObjectToSpawnIn, Player.Instance.Hand.transform.position, Quaternion.identity);
+        GameObject prefab = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs/BuildingBlocks", gameObjectToSpawnIn), player.Hand.transform.position, Quaternion.identity);
         yield return new WaitForEndOfFrame();
         yield return new WaitForEndOfFrame();
-        FindObjectOfType<Player>().InteractWithObject();
+        player.InteractWithObject();
     }
 }

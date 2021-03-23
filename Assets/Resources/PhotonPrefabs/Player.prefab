@@ -149,6 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab11cd7fb1492c349a147929304c0570, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PV: {fileID: 0}
   playerLook: {fileID: 1105289707108219098}
   inHand: {fileID: 0}
   hand: {fileID: 1105289706760168611}
@@ -183,7 +184,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyState: 0
   head: {fileID: 1784261085}
-  gizmo: {fileID: 5572066093302373193, guid: dfc966b7f00c6a3428177c15bbfdfe03, type: 3}
+  gizmoPrefab: {fileID: 5572066093302373193, guid: d569acee439f647459031f6e5757a218, type: 3}
   scaleDampener: 0.01
   moveDampener: 0.05
 --- !u!114 &357012839
@@ -198,12 +199,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d22d8de3ad9a5b44a2cca78b4d7d1ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventory: {fileID: 9132359740180613035, guid: fb75cceac3c9ad04cb5957570a29ec0e, type: 3}
-  inventoryPages:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  currentPageIndex: 0
+  inventory: {fileID: 9132359740180613035, guid: 6c3617446bcf5424194eb608e02cdb58, type: 3}
+  eventCamera: {fileID: 1105289707108219096}
 --- !u!114 &2030850871
 MonoBehaviour:
   m_ObjectHideFlags: 0

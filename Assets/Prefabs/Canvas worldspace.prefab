@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a7ad85e53d5f5a44819056dfb8f901d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameObjectToSpawnIn: {fileID: 4977790695150609319, guid: c2bc5d16312be0d4d80320690396885a, type: 3}
+  gameObjectToSpawnIn: 
 --- !u!1 &2465615891162069414
 GameObject:
   m_ObjectHideFlags: 0
@@ -490,19 +490,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6960100831863317369}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: PlayerInventory, Assembly-CSharp
-        m_MethodName: QuitInventory
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!65 &3329734641707802711
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -528,6 +516,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5a588e1c53d8cf4bac3d968329e1928, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inventory: {fileID: 1436755318566426119}
 --- !u!1 &3418610939817085343
 GameObject:
   m_ObjectHideFlags: 0
@@ -627,7 +616,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a7ad85e53d5f5a44819056dfb8f901d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameObjectToSpawnIn: {fileID: 4977790695150609319, guid: c2bc5d16312be0d4d80320690396885a, type: 3}
+  gameObjectToSpawnIn: 
 --- !u!1 &4599168612100468103
 GameObject:
   m_ObjectHideFlags: 0
@@ -715,7 +704,7 @@ GameObject:
   - component: {fileID: 7086826117369281562}
   - component: {fileID: 3005420203911360640}
   m_Layer: 5
-  m_Name: Previous button (1)
+  m_Name: NextButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -822,19 +811,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3893162153308822125}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: PlayerInventory, Assembly-CSharp
-        m_MethodName: QuitInventory
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!65 &7086826117369281562
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -860,6 +837,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc42f37fa9f5d37489037c4e2803f67b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inventory: {fileID: 1436755318566426119}
 --- !u!1 &8933206699423759304
 GameObject:
   m_ObjectHideFlags: 0
@@ -1056,7 +1034,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9132359739181728289}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 4.3}
+  m_LocalPosition: {x: 0, y: 0, z: 4.299961}
   m_LocalScale: {x: 0.003712415, y: 0.003712415, z: 0.003712415}
   m_Children:
   - {fileID: 9132359740651716314}
@@ -1068,10 +1046,10 @@ RectTransform:
   m_Father: {fileID: 9132359740180613031}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -533.79, y: -268.63}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0.00008392334, y: -0.000030517578}
+  m_SizeDelta: {x: 1068, y: 540}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9132359739181728286
 CanvasRenderer:
@@ -1124,6 +1102,7 @@ GameObject:
   - component: {fileID: 9132359740180613033}
   - component: {fileID: 9132359740180613034}
   - component: {fileID: 9132359740180613030}
+  - component: {fileID: 1436755318566426119}
   m_Layer: 5
   m_Name: Canvas worldspace
   m_TagString: Untagged
@@ -1138,17 +1117,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9132359740180613035}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.081977986, y: 0.260906, z: -0.022242203, w: 0.96162003}
+  m_LocalPosition: {x: 0, y: 0, z: -0.06474793}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 9132359739181728288}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 534, y: 269.5}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 1.4724362, y: 1.0100001}
   m_SizeDelta: {x: 1068, y: 539}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &9132359740180613032
@@ -1194,7 +1173,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &9132359740180613034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1224,6 +1203,23 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &1436755318566426119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9132359740180613035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a38436cf2c8b29c438a5520b8a6b0a58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventoryPages:
+  - {fileID: 4599168612100468103}
+  - {fileID: 8933206699423759304}
+  - {fileID: 6745438656836118648}
+  currentPageIndex: 0
 --- !u!1 &9132359740251850496
 GameObject:
   m_ObjectHideFlags: 0
@@ -1323,7 +1319,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a7ad85e53d5f5a44819056dfb8f901d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameObjectToSpawnIn: {fileID: 4977790695150609319, guid: c2bc5d16312be0d4d80320690396885a, type: 3}
+  gameObjectToSpawnIn: EQUILATERALTRIANGLE.BOTSOP
 --- !u!1 &9132359740651716315
 GameObject:
   m_ObjectHideFlags: 0
@@ -1446,19 +1442,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 9132359740651716312}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: PlayerInventory, Assembly-CSharp
-        m_MethodName: QuitInventory
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!65 &9132359740651716310
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1484,3 +1468,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2bef7cbfc973864eaa7740d0d5ec35c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvas: {fileID: 9132359740180613035}
