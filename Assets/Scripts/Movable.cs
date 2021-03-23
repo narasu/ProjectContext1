@@ -37,10 +37,11 @@ public class Movable : Interactable
     {
         Debug.Log("PV" + PV.IsMine);
         Debug.Log("PlayerPV" + player.GetComponent<Player>().PV.IsMine);
-        if (!PV.IsMine && player.GetComponent<Player>().PV.IsMine)
-        {
-            PV.TransferOwnership(PhotonNetwork.LocalPlayer);
-        }
+        PV.TransferOwnership(player.GetComponent<Player>().networkPlayer);
+        //if (!PV.IsMine && player.GetComponent<Player>().PV.IsMine)
+        //{
+        //    PV.TransferOwnership(PhotonNetwork.LocalPlayer);
+        //}
         //if (player.GetComponent<Player>().PV.IsMine)
         //{
         //    PV.TransferOwnership(PhotonNetwork.LocalPlayer);

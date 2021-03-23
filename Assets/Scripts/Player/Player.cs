@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
             return instance;
         }
     }
+    public Photon.Realtime.Player networkPlayer;
 
     [HideInInspector] public PhotonView PV;
     [SerializeField] private PlayerLook playerLook;
@@ -46,6 +47,7 @@ public class Player : MonoBehaviour
         }
         else
         {
+            networkPlayer = PhotonNetwork.LocalPlayer;
             gameObject.tag = "Player";
         }
     }
