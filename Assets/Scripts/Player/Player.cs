@@ -44,6 +44,10 @@ public class Player : MonoBehaviour
         {
             Destroy(GetComponentInChildren<Camera>().gameObject);
         }
+        else
+        {
+            gameObject.tag = "Player";
+        }
     }
     private void Update()
     {

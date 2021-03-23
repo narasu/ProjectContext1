@@ -20,7 +20,7 @@ public class BuildingBlockMoveable : Movable, IBuildingBlock
         PV = GetComponent<PhotonView>();
         
         rb = GetComponent<Rigidbody>();
-        collider = GetComponent<Collider>();
+        collider = GetComponent<Collider>(); 
         material = renderer.material;
 
         resizeScalerX = transform.localScale.x / 10;
@@ -31,29 +31,30 @@ public class BuildingBlockMoveable : Movable, IBuildingBlock
         {
             renderer.material.color = Color;
         }
-        //if (!PV.IsMine)
+        //if (!PhotonNetwork.IsMasterClient)
         //{
         //    Destroy(rb);
         //}
     }
     public override void Grab(Transform player)
     {
-        //if (!PV.IsMine)
-        //{
-        //    return;
-        //}
+        
         base.Grab(player);
-        rb.velocity = Vector3.zero;
-        rb.angularVelocity = Vector3.zero;
-        rb.constraints = RigidbodyConstraints.FreezeAll;
         collider.isTrigger = true;
         gameObject.GetComponent<Outline>().enabled = true;
         gameObject.GetComponent<Outline>().OutlineColor = grabOutline;
+        rb.velocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+        rb.constraints = RigidbodyConstraints.FreezeAll;
+        if (PhotonNetwork.IsMasterClient)
+        {
+            
+        }
     }
 
     public override void Drop()
     {
-        //if (!PV.IsMine)
+        //if (!PhotonNetwork.IsMasterClient)
         //{
         //    return;
         //}
