@@ -20,10 +20,10 @@ public class PlayerMovement : MonoBehaviour
     {
         rigidbody = GetComponent<Rigidbody>();
         PV = GetComponent<PhotonView>();
-        //if (!PV.IsMine)
-        //{
-        //    Destroy(rigidbody);
-        //}
+        if (!PV.IsMine)
+        {
+            Destroy(rigidbody);
+        }
         normalMovementSpeed = movementSpeed;
         normalLevitationSpeed = levitationSpeed;
     }
@@ -46,6 +46,8 @@ public class PlayerMovement : MonoBehaviour
         {
             rigidbody.velocity = new Vector3(1, 0, 1);
         }
+
+        Debug.Log("velocity: "+ rigidbody.velocity);
 
         if(Input.GetKey(KeyCode.LeftShift))
         {

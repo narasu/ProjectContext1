@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using Photon.Pun;
 
 public class BuildingBlockMoveable : Movable, IBuildingBlock
 {
@@ -11,6 +12,7 @@ public class BuildingBlockMoveable : Movable, IBuildingBlock
     Collider collider;
     Material material;
 
+    
 
     protected override void Awake()
     {
@@ -84,7 +86,14 @@ public class BuildingBlockMoveable : Movable, IBuildingBlock
 
     public void SetColor(Color color)
     {
-        material.color = color;
+        //material.color = color;
         Color = color;
+        PV.RPC("RPC_SendColor", RpcTarget.AllBuffered, null);
+    }
+    [PunRPC]
+    public void RPC_SendColor()
+    {
+        material.color = Color;
+        //Color = color;
     }
 }

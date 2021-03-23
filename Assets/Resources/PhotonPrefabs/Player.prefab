@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 2030850871}
   - component: {fileID: 1092472941044132877}
   - component: {fileID: -4298871268877264320}
-  - component: {fileID: 1403164457963614456}
+  - component: {fileID: 6103265485511668407}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -123,8 +123,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 8
   slowMovementSpeed: 1
-  levitationSpeed: 2000
-  slowLevitationSpeed: 500
+  levitationSpeed: 1000
+  slowLevitationSpeed: 250
 --- !u!114 &4254211705319224275
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,8 +154,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d22d8de3ad9a5b44a2cca78b4d7d1ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventory: {fileID: 9132359740180613035, guid: 6c3617446bcf5424194eb608e02cdb58, type: 3}
+  inventoryPrefab: {fileID: 9132359740180613035, guid: 6c3617446bcf5424194eb608e02cdb58, type: 3}
   eventCamera: {fileID: 1105289707108219096}
+  inventoryPos: {fileID: 6844495487475294018}
 --- !u!114 &2030850871
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -206,11 +207,11 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents:
-  - {fileID: 1403164457963614456}
+  - {fileID: 6103265485511668407}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &1403164457963614456
+--- !u!114 &6103265485511668407
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -219,13 +220,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1105289706732442848}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64179f3720bbfe947b7724caa67b7c1d, type: 3}
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SynchronizeVelocity: 1
-  m_SynchronizeAngularVelocity: 0
-  m_TeleportEnabled: 0
-  m_TeleportIfDistanceGreaterThan: 3
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
+  m_UseLocal: 1
 --- !u!1 &1105289706760168610
 GameObject:
   m_ObjectHideFlags: 0
@@ -603,7 +604,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4668729841955192362}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.01, z: 2.25}
+  m_LocalPosition: {x: 0, y: 0.01, z: 1.388}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1105289706732442849}

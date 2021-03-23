@@ -1,10 +1,11 @@
 using UnityEngine;
 using Photon.Pun;
 
-public class RigidbodySync : MonoBehaviourPun, IPunObservable
+public class BuildingBlockSync : MonoBehaviourPun, IPunObservable
 {
 
     Rigidbody r;
+    Collider collider;
 
     Transform parent;
     Vector3 latestPos;
@@ -12,8 +13,8 @@ public class RigidbodySync : MonoBehaviourPun, IPunObservable
     Vector3 latestScale;
     Vector3 velocity;
     Vector3 angularVelocity;
-    Collider collider;
     RigidbodyConstraints latestConstraints;
+    
     bool isTrigger;
 
     bool valuesReceived = false;
@@ -70,7 +71,6 @@ public class RigidbodySync : MonoBehaviourPun, IPunObservable
             r.angularVelocity = angularVelocity;
             r.constraints = latestConstraints;
             collider.isTrigger = isTrigger;
-
         }
     }
 

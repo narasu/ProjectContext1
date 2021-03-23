@@ -52,6 +52,18 @@ public class PlayerLook : MonoBehaviour
             CameraRotation();
 
         ScanForTargets();
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (Cursor.lockState == CursorLockMode.Locked)
+            {
+                Cursor.lockState = CursorLockMode.None;
+            }
+            else
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+            }
+        }
     }
     void ScanForTargets()
     {
