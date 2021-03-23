@@ -128,6 +128,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5283059267551918276, guid: c5a4e3ada67ade64fb36b76ab524b3ba, type: 3}
   m_PrefabInstance: {fileID: 484602127}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &176175020 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2442299462288301315, guid: c5a4e3ada67ade64fb36b76ab524b3ba, type: 3}
+  m_PrefabInstance: {fileID: 484602127}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &329404401
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -212,38 +217,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5283059266725642320, guid: c5a4e3ada67ade64fb36b76ab524b3ba, type: 3}
-      propertyPath: m_Value
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5283059267500109802, guid: c5a4e3ada67ade64fb36b76ab524b3ba, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5283059267500109802, guid: c5a4e3ada67ade64fb36b76ab524b3ba, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5283059267500109802, guid: c5a4e3ada67ade64fb36b76ab524b3ba, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5283059267500109802, guid: c5a4e3ada67ade64fb36b76ab524b3ba, type: 3}
-      propertyPath: m_AnchorMin.y
+    - target: {fileID: 2442299462288301315, guid: c5a4e3ada67ade64fb36b76ab524b3ba, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5283059267500109802, guid: c5a4e3ada67ade64fb36b76ab524b3ba, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5283059267500109802, guid: c5a4e3ada67ade64fb36b76ab524b3ba, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 632
-      objectReference: {fileID: 0}
-    - target: {fileID: 5283059267500109802, guid: c5a4e3ada67ade64fb36b76ab524b3ba, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
+    - target: {fileID: 2707199850149077298, guid: c5a4e3ada67ade64fb36b76ab524b3ba, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1385738642}
     - target: {fileID: 5283059267675675054, guid: c5a4e3ada67ade64fb36b76ab524b3ba, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -351,6 +332,64 @@ PrefabInstance:
     - target: {fileID: 5283059268302243575, guid: c5a4e3ada67ade64fb36b76ab524b3ba, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5496996743734464988, guid: c5a4e3ada67ade64fb36b76ab524b3ba, type: 3}
+      propertyPath: m_text
+      value: '<B>Controls</B>
+
+        Move: WASD
+
+        Fly up: Space
+
+        Fly
+        down: Control
+
+        Picking objects up: left mouse click
+
+        Change
+        object properties: right mouse click
+
+        Precise movement: Shift + WASD
+
+        Change
+        object scale: Scroll + in hand object
+
+        Change object position: Shift
+        + scroll + in hand object
+
+        Change specific angle: in hand object
+        + R + Z or X or C
+
+        Change specific scale: in hand object + F + Z
+        or X or C'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6110103141812805671, guid: c5a4e3ada67ade64fb36b76ab524b3ba, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6110103141812805671, guid: c5a4e3ada67ade64fb36b76ab524b3ba, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6110103141812805671, guid: c5a4e3ada67ade64fb36b76ab524b3ba, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6110103141812805671, guid: c5a4e3ada67ade64fb36b76ab524b3ba, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6110103141812805671, guid: c5a4e3ada67ade64fb36b76ab524b3ba, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 469.519
+      objectReference: {fileID: 0}
+    - target: {fileID: 6110103141812805671, guid: c5a4e3ada67ade64fb36b76ab524b3ba, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 1226
+      objectReference: {fileID: 0}
+    - target: {fileID: 6110103141812805671, guid: c5a4e3ada67ade64fb36b76ab524b3ba, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 702
       objectReference: {fileID: 0}
     - target: {fileID: 6401612299142075134, guid: c5a4e3ada67ade64fb36b76ab524b3ba, type: 3}
       propertyPath: m_AnchorMax.y
@@ -888,6 +927,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1385738643}
   - component: {fileID: 1385738642}
+  - component: {fileID: 1385738644}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -907,6 +947,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 230d01a2e9df93b47b950c0ea3669da0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pauseMenu: {fileID: 176175020}
+  pauseActive: 0
 --- !u!4 &1385738643
 Transform:
   m_ObjectHideFlags: 0
@@ -915,12 +957,37 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1385738641}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.7337286, y: 5.56039, z: -2.7181065}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1385738644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1385738641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9c29de9fb3ef0a4ca3c6f21bd97ce12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Sound1
+    clip: {fileID: 8300000, guid: 9a6ff37ab53e84541ac771ec8bdcad54, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Sound2
+    clip: {fileID: 8300000, guid: 5cd73cb11fbab2046888301b22c16785, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
 --- !u!20 &1433321481 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 1105289707108219096, guid: 4483a92a5cacef5488c1c76339244251, type: 3}

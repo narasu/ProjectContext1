@@ -36,12 +36,10 @@ public class PlayerMovement : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.Space))
         {
-            //transform.Translate(Vector3.up * levitationSpeed * Time.deltaTime);
             rigidbody.velocity = Vector3.up * levitationSpeed * Time.deltaTime;
         }
         else if (Input.GetKey(KeyCode.LeftControl))
         {
-            //transform.Translate(Vector3.down * levitationSpeed * Time.deltaTime);
             rigidbody.velocity = Vector3.down * levitationSpeed * Time.deltaTime;
         }
         else
