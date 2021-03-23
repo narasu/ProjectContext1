@@ -26,6 +26,7 @@ public class Player : MonoBehaviour
     //Object of type movable that the player is holding
     [HideInInspector] public Movable inHand;
     [SerializeField] private Transform hand;
+    [SerializeField] GameObject[] frogModel;
     public Transform Hand
     {
         get { return hand; }
@@ -47,6 +48,10 @@ public class Player : MonoBehaviour
         }
         else
         {
+            foreach (GameObject o in frogModel)
+            {
+                Destroy(o);
+            }
             networkPlayer = PhotonNetwork.LocalPlayer;
             gameObject.tag = "Player";
         }
