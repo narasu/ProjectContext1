@@ -27,6 +27,7 @@ public class PlayerLook : MonoBehaviour
     public Interactable lastTarget;
     private PlayerTransformInHand playerTransformInHand;
     private PlayerEditMaterial playerEditMaterial;
+    GameManager gameManager;
 
     private void Awake()
     {
@@ -34,12 +35,16 @@ public class PlayerLook : MonoBehaviour
         camera = GetComponent<Camera>();
         playerTransformInHand = FindObjectOfType<PlayerTransformInHand>();
         playerEditMaterial = FindObjectOfType<PlayerEditMaterial>();
+
+        //Game manager moet nog child van player worden dan kan je GetChild() gebruiken
+        gameManager = FindObjectOfType<GameManager>();
+
         LockCursor();
     }
 
     private void Update()
     {
-        if(playerTransformInHand.keyState == PlayerTransformInHand.KeyStates.nothing && !playerEditMaterial.editMatActive)
+        if(playerTransformInHand.keyState == PlayerTransformInHand.KeyStates.nothing && !playerEditMaterial.editMatActive && !gameManager.pauseActive)
             CameraRotation();
 
         ScanForTargets();
