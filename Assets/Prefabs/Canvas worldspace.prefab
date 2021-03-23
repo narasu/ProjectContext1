@@ -4501,7 +4501,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9132359739181728289}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 4.299961}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.003712415, y: 0.003712415, z: 0.003712415}
   m_Children:
   - {fileID: 1667081952139100273}
@@ -4642,7 +4642,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &9132359740180613034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4789,7 +4789,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a7ad85e53d5f5a44819056dfb8f901d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameObjectToSpawnIn: EQUILATERALTRIANGLE.BOTSOP
+  gameObjectToSpawnIn: ACUTETRIANGLE.BOTSOP
 --- !u!1 &9132359740651716315
 GameObject:
   m_ObjectHideFlags: 0

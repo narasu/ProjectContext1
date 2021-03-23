@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 1294310431463091795}
   - component: {fileID: -2525462913575789092}
   - component: {fileID: -6123676635062602405}
+  - component: {fileID: -1549137728316526361}
   m_Layer: 6
   m_Name: Cylinder
   m_TagString: Untagged
@@ -172,7 +173,7 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents:
-  - {fileID: 0}
+  - {fileID: -6123676635062602405}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -188,3 +189,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ede284b8f493ac94495bf636a4f61920, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-1549137728316526361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 707534135787269763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ab89ceeb5b20094fa57f96b4b6325dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTargeted: 0
+  resizeScalerX: 0
+  resizeScalerY: 0
+  resizeScalerZ: 0
+  Color: {r: 1, g: 0, b: 0, a: 1}
+  SetColorOnStart: 0
+  selectionOutline: {r: 1, g: 0.8352941, b: 0.56078434, a: 1}
+  grabOutline: {r: 0.7607843, g: 0.93333334, b: 0.4, a: 1}
