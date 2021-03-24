@@ -63,10 +63,12 @@ public class BuildingBlockMoveable : Movable, IBuildingBlock
 
     public override void HighlightInteractionOn()
     {
+        
         gameObject.GetComponent<Outline>().enabled = true;
     }
     public override void HighlightInteractionOff()
     {
+        
         gameObject.GetComponent<Outline>().enabled = false;
     }
     UnityAction<Color> a;
@@ -81,6 +83,7 @@ public class BuildingBlockMoveable : Movable, IBuildingBlock
     }
     public override void DeactiveEditMaterial()
     {
+        
         picker.onValueChanged.RemoveListener(a);
     }
 

@@ -44,11 +44,11 @@ namespace HSVPicker
         private void Start()
         {
             transform.parent.transform.parent.gameObject.SetActive(false);
-            Setup.AlphaSlidiers.Toggle(Setup.ShowAlpha);
-            Setup.ColorToggleElement.Toggle(Setup.ShowColorSliderToggle);
-            Setup.RgbSliders.Toggle(Setup.ShowRgb);
-            Setup.HsvSliders.Toggle(Setup.ShowHsv);
-            Setup.ColorBox.Toggle(Setup.ShowColorBox);
+            //Setup.AlphaSlidiers.Toggle(Setup.ShowAlpha);
+            //Setup.ColorToggleElement.Toggle(Setup.ShowColorSliderToggle);
+            //Setup.RgbSliders.Toggle(Setup.ShowRgb);
+            //Setup.HsvSliders.Toggle(Setup.ShowHsv);
+            //Setup.ColorBox.Toggle(Setup.ShowColorBox);
 
             HandleHeaderSetting(Setup.ShowHeader);
             UpdateColorToggleText();

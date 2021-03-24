@@ -121,9 +121,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbf48bfe8c33f2946861257c8987260a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 8
+  movementSpeed: 10
   slowMovementSpeed: 1
-  levitationSpeed: 1000
+  levitationSpeed: 750
   slowLevitationSpeed: 250
 --- !u!114 &4254211705319224275
 MonoBehaviour:
@@ -393,7 +393,7 @@ MonoBehaviour:
   lookVector: {x: 0, y: 0}
   playerBody: {fileID: 1105289706732442849}
   raycastDistance: 10
-  mouseSensitivity: 6.6
+  mouseSensitivity: 2
   camera: {fileID: 0}
   owner: {fileID: 1105289706732442851}
   lastTarget: {fileID: 0}
