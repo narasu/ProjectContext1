@@ -1911,6 +1911,10 @@ PrefabInstance:
       propertyPath: m_ChildForceExpandHeight
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8344036766455661083, guid: cae5720989b4d734f9aff92a328df1c8, type: 3}
+      propertyPath: m_text
+      value: ToekomstBuild
+      objectReference: {fileID: 0}
     - target: {fileID: 8344036768087577324, guid: cae5720989b4d734f9aff92a328df1c8, type: 3}
       propertyPath: m_IsActive
       value: 0

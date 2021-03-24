@@ -35,6 +35,10 @@ public class Movable : Interactable
 
     public virtual void Grab(Transform player)
     {
+        if(isGrabbed)
+        {
+            return;
+        }
         Debug.Log("PV" + PV.IsMine);
         Debug.Log("PlayerPV" + player.GetComponent<Player>().PV.IsMine);
         PV.TransferOwnership(player.GetComponent<Player>().networkPlayer);
@@ -75,7 +79,7 @@ public class Movable : Interactable
 
     public virtual void Drop()
     {
-        
+        PV.TransferOwnership(10);
         fsm.GotoState(InteractableStateType.Normal);
         transform.SetParent(null);
         playerTransform = null;

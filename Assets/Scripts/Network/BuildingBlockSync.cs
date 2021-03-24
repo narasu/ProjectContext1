@@ -16,6 +16,7 @@ public class BuildingBlockSync : MonoBehaviourPun, IPunObservable
     RigidbodyConstraints latestConstraints;
     
     bool isTrigger;
+    bool isActive;
 
     bool valuesReceived = false;
 
@@ -29,6 +30,7 @@ public class BuildingBlockSync : MonoBehaviourPun, IPunObservable
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
+        valuesReceived = false;
         if (stream.IsWriting)
         {
             //We own this player: send the others our data
@@ -40,6 +42,7 @@ public class BuildingBlockSync : MonoBehaviourPun, IPunObservable
             stream.SendNext(r.velocity);
             stream.SendNext(r.angularVelocity);
             stream.SendNext(collider.isTrigger);
+            stream.SendNext(isActiveAndEnabled);
         }
         else
         {
@@ -52,6 +55,7 @@ public class BuildingBlockSync : MonoBehaviourPun, IPunObservable
             velocity = (Vector3)stream.ReceiveNext();
             angularVelocity = (Vector3)stream.ReceiveNext();
             isTrigger = (bool)stream.ReceiveNext();
+            isActive = (bool)stream.ReceiveNext();
 
             valuesReceived = true;
         }
@@ -71,6 +75,7 @@ public class BuildingBlockSync : MonoBehaviourPun, IPunObservable
             r.angularVelocity = angularVelocity;
             r.constraints = latestConstraints;
             collider.isTrigger = isTrigger;
+            gameObject.SetActive(isActive);
         }
     }
 

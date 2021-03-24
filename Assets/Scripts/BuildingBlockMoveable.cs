@@ -90,10 +90,21 @@ public class BuildingBlockMoveable : Movable, IBuildingBlock
         Color = color;
         PV.RPC("RPC_SendColor", RpcTarget.AllBuffered, null);
     }
+    private void OnDisable()
+    {
+        PV.RPC("RPC_Disable", RpcTarget.AllBuffered, null);
+    }
     [PunRPC]
     public void RPC_SendColor()
     {
         material.color = Color;
         //Color = color;
+    }
+
+    [PunRPC]
+    public void RPC_Disable()
+    {
+        //Debug.Log("ayy");
+        gameObject.SetActive(false);
     }
 }

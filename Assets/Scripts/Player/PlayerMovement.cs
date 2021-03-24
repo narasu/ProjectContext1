@@ -38,7 +38,7 @@ public class PlayerMovement : MonoBehaviour
         {
             rigidbody.velocity = Vector3.up * levitationSpeed * Time.deltaTime;
         }
-        else if (Input.GetKey(KeyCode.LeftControl))
+        else if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
         {
             rigidbody.velocity = Vector3.down * levitationSpeed * Time.deltaTime;
         }
@@ -47,18 +47,22 @@ public class PlayerMovement : MonoBehaviour
             rigidbody.velocity = new Vector3(1, 0, 1);
         }
 
-        Debug.Log("velocity: "+ rigidbody.velocity);
+        //Debug.Log("velocity: "+ rigidbody.velocity);
 
-        if(Input.GetKey(KeyCode.LeftShift))
+        if(Input.GetKeyDown(KeyCode.CapsLock))
         {
-            movementSpeed = slowMovementSpeed;
-            levitationSpeed = slowLevitationSpeed;
+            if (movementSpeed == normalMovementSpeed && levitationSpeed == normalLevitationSpeed)
+            {
+                movementSpeed = slowMovementSpeed;
+                levitationSpeed = slowLevitationSpeed;
+            }
+            else
+            {
+                movementSpeed = normalMovementSpeed;
+                levitationSpeed = normalLevitationSpeed;
+            }
         }
-        else
-        {
-            movementSpeed = normalMovementSpeed;
-            levitationSpeed = normalLevitationSpeed;
-        }
+        
 
         //get input vector
         float vertInput = Input.GetAxisRaw("Vertical");

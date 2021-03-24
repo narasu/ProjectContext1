@@ -12,12 +12,11 @@ GameObject:
   - component: {fileID: 2817144999916065829}
   - component: {fileID: 6179943544552006126}
   - component: {fileID: 6563353897001366051}
-  - component: {fileID: 1473992838182313244}
   - component: {fileID: 8852899724249085625}
   - component: {fileID: 1294310431463091795}
+  - component: {fileID: -1549137728316526361}
   - component: {fileID: -2525462913575789092}
   - component: {fileID: -6123676635062602405}
-  - component: {fileID: -1549137728316526361}
   m_Layer: 6
   m_Name: Cylinder
   m_TagString: Untagged
@@ -102,24 +101,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
---- !u!114 &1473992838182313244
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 707534135787269763}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a5b03ee241d74844ad8fd0f8182e2e0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isTargeted: 0
-  resizeScalerX: 0
-  resizeScalerY: 0
-  resizeScalerZ: 0
-  Color: {r: 1, g: 0, b: 0, a: 1}
-  SetColorOnStart: 0
 --- !u!54 &8852899724249085625
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -154,41 +135,6 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
---- !u!114 &-2525462913575789092
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 707534135787269763}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ObservedComponentsFoldoutOpen: 1
-  Group: 0
-  prefixField: -1
-  Synchronization: 3
-  OwnershipTransfer: 0
-  observableSearch: 2
-  ObservedComponents:
-  - {fileID: -6123676635062602405}
-  sceneViewId: 0
-  InstantiationId: 0
-  isRuntimeInstantiated: 0
---- !u!114 &-6123676635062602405
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 707534135787269763}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ede284b8f493ac94495bf636a4f61920, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &-1549137728316526361
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -209,3 +155,38 @@ MonoBehaviour:
   SetColorOnStart: 0
   selectionOutline: {r: 1, g: 0.8352941, b: 0.56078434, a: 1}
   grabOutline: {r: 0.7607843, g: 0.93333334, b: 0.4, a: 1}
+--- !u!114 &-2525462913575789092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 707534135787269763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 1
+  OwnershipTransfer: 1
+  observableSearch: 2
+  ObservedComponents:
+  - {fileID: -6123676635062602405}
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
+--- !u!114 &-6123676635062602405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 707534135787269763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ede284b8f493ac94495bf636a4f61920, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

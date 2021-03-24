@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 130915367171516991}
   - component: {fileID: 3926788407714047386}
   - component: {fileID: 1268385660024787280}
-  - component: {fileID: 764145710673539202}
   - component: {fileID: 764145710673539203}
   - component: {fileID: 764145710673539200}
   - component: {fileID: 764145710673539201}
+  - component: {fileID: 764145710673539202}
   - component: {fileID: -7310506694030445818}
   - component: {fileID: -8730168974581850623}
   - component: {fileID: 5853780266801482038}
@@ -88,26 +88,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &764145710673539202
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 764145710673539205}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ab89ceeb5b20094fa57f96b4b6325dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isTargeted: 0
-  resizeScalerX: 0
-  resizeScalerY: 0
-  resizeScalerZ: 0
-  Color: {r: 0.7220672, g: 0.9622642, b: 0.6581524, a: 1}
-  SetColorOnStart: 1
-  selectionOutline: {r: 1, g: 0.8347043, b: 0.5613208, a: 1}
-  grabOutline: {r: 0.7601612, g: 0.9339623, b: 0.4008989, a: 1}
 --- !u!64 &764145710673539203
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -145,7 +125,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 764145710673539205}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
   m_Name: 
@@ -156,6 +136,26 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!114 &764145710673539202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 764145710673539205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ab89ceeb5b20094fa57f96b4b6325dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTargeted: 0
+  resizeScalerX: 0
+  resizeScalerY: 0
+  resizeScalerZ: 0
+  Color: {r: 0.7220672, g: 0.9622642, b: 0.6581524, a: 1}
+  SetColorOnStart: 1
+  selectionOutline: {r: 1, g: 0.8347043, b: 0.5613208, a: 1}
+  grabOutline: {r: 0.7601612, g: 0.9339623, b: 0.4008989, a: 1}
 --- !u!114 &-7310506694030445818
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -172,7 +172,7 @@ MonoBehaviour:
   Group: 0
   prefixField: -1
   Synchronization: 1
-  OwnershipTransfer: 0
+  OwnershipTransfer: 1
   observableSearch: 2
   ObservedComponents:
   - {fileID: -8730168974581850623}

@@ -38,8 +38,10 @@ public class Player : MonoBehaviour
         //Initialize variables;
         instance = this;
         PV = GetComponent<PhotonView>();
+        PV.Owner.TagObject = gameObject;
         playerTransformInHand = gameObject.GetComponent<PlayerTransformInHand>();
     }
+
     private void Start()
     {
         if (!PV.IsMine)
@@ -71,6 +73,11 @@ public class Player : MonoBehaviour
                 && !FindObjectOfType<PlayerEditMaterial>().editMatActive) 
             {
                 InteractWithObject();
+            }
+            if (Input.GetKeyDown(KeyCode.Delete) && hit.transform.gameObject.GetComponent<IButton>() == null && hit.transform.GetComponent<Movable>()!=null)
+            {
+                //PhotonNetwork.Destroy(hit.transform.gameObject);
+                hit.transform.gameObject.SetActive(false);
             }
         }
         else if(Input.GetMouseButtonDown(0) && playerTransformInHand.keyState == PlayerTransformInHand.KeyStates.nothing && !FindObjectOfType<PlayerEditMaterial>().editMatActive)

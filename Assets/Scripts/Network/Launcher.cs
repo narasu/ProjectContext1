@@ -66,8 +66,11 @@ public class Launcher : MonoBehaviourPunCallbacks
         {
             return;
         }
+        RoomOptions roomOptions = new RoomOptions();
+        roomOptions.MaxPlayers = 6;
+        roomOptions.CleanupCacheOnLeave = false;
         MenuManager.Instance.OpenMenu(MenuType.Loading);
-        PhotonNetwork.CreateRoom(roomNameInputField.text);
+        PhotonNetwork.CreateRoom(roomNameInputField.text, roomOptions);
     }
 
     public override void OnCreateRoomFailed(short returnCode, string message)

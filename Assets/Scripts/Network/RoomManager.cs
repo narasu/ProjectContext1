@@ -46,9 +46,16 @@ public class RoomManager : MonoBehaviourPunCallbacks
     {
         if (scene.buildIndex == 1)
         {
+            
             PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "PlayerManager"), Vector3.zero, Quaternion.identity);
-            PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs/BuildingBlocks", "EQUILATERALTRIANGLE.BOTSOP"), new Vector3(5.0f, 1.0f, 5.0f), Quaternion.identity);
+            //PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs/BuildingBlocks", "EQUILATERALTRIANGLE.BOTSOP"), new Vector3(5.0f, 1.0f, 5.0f), Quaternion.identity);
         }
     }
 
+    public override void OnPlayerLeftRoom(Photon.Realtime.Player otherPlayer)
+    {
+        Debug.Log(otherPlayer.TagObject);
+        GameObject o = otherPlayer.TagObject as GameObject;
+        PhotonNetwork.Destroy(o.GetComponent<PhotonView>());
+    }
 }

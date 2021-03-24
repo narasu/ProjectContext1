@@ -43,7 +43,7 @@ public class PlayerTransformInHand : MonoBehaviour
             Movable inHandMovable = inHand.GetComponent<Movable>();
             
 
-            if(Input.GetKey(KeyCode.LeftShift))
+            if(Input.GetKey(KeyCode.F))
             {
                 Vector3 moveAlongVector = (inHand.transform.position - head.transform.position) * Input.mouseScrollDelta.y * moveDampener;
                 inHand.transform.position += moveAlongVector;
@@ -60,10 +60,10 @@ public class PlayerTransformInHand : MonoBehaviour
                 inHand.transform.localScale = resizeScale;
             }
 
-            if(Input.GetKeyDown(KeyCode.R)){
+            if(Input.GetKeyDown(KeyCode.E)){
                 SwitchToSelection(KeyStates.rotateSelection);
             }
-            if(Input.GetKeyDown(KeyCode.F)){
+            if(Input.GetKeyDown(KeyCode.R)){
                 SwitchToSelection(KeyStates.resizeSelection);
             }
 

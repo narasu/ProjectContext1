@@ -21,7 +21,9 @@ public class DragButton : MonoBehaviour, IButton
     IEnumerator InteractWithDelay()
     {
         //Transform headTrans = FindObjectOfType<Player>().transform.GetChild(1).transform;
-        GameObject prefab = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs/BuildingBlocks", gameObjectToSpawnIn), player.Hand.transform.position, Quaternion.identity);
+        GameObject o = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs/BuildingBlocks", gameObjectToSpawnIn), player.Hand.transform.position, Quaternion.identity);
+        //o.GetComponent<Movable>().PV.TransferOwnership(0);
+
         yield return new WaitForEndOfFrame();
         yield return new WaitForEndOfFrame();
         player.InteractWithObject();
